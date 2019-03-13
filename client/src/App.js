@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Navbar from './Components/Navbar'
-import Landing from './Components/Landing'
-import Login from './Components/Login'
-import Register from './Components/Register'
-import Profile from './Components/Profile'
+import Navbar from "./Components/Navbar";
+import Landing from "./Components/Landing";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
+import Profile from "./Components/Profile";
 import Home from "./Pages/Home";
 import Books from "./Pages/Books";
 import Notes from "./Pages/Notes";
@@ -13,10 +13,10 @@ import RideSharing from "./Pages/RideSharing";
 import "./App.css";
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <Router>
-        <div className="App">
+        <div className="App Color-background">
           <Navbar />
           <Route exact path="/" component={Home} />
           <Route path="/Books" component={Books} />
@@ -27,6 +27,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
           </div>
+          <div className="Color-background"> .</div>
         </div>
       </Router>
     );
