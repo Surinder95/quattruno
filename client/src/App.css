@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,16 +16,6 @@
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 label.price {
   font-weight: 700;
@@ -105,8 +89,6 @@ label.price:before {
   opacity: 1;
 }
 
-
-
 .text {
   color: white;
   font-size: 18px;
@@ -129,4 +111,8 @@ label.price:before {
 
 .personalbubble {
   margin: 10px;
+}
+
+.commentFont {
+  font-size: 12px
 }

@@ -47,13 +47,6 @@ class Home extends Component {
                 <br/>
                 <br/>
 
-                <Card title="Surinder Singh" height="7rem" /><br/>
-                <br/>
-                <Card title="Planner" height="7rem" /><br/>
-                <br/>
-                <Card title="Classes" height="7rem" /><br/>
-                <br/>
-                <Card title="Log Out" height="7rem" />
               </div>
 
               <div className="col-sm-6 col-lg-3">
