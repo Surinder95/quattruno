@@ -38,7 +38,7 @@ class Notes extends Component {
                       <input type="text" id="comments" className="form-control" placeholder="Comments"/><br/>
                       <input type="text" id="date" className="form-control" placeholder="Date"/><br/>
                       <input type="file" onChange={this.handleChange}/>
-                      <img style={{ width:250, height:250 }} src={this.state.file} resizeMode='contain'/><br/>
+                      <img style={{ width:250, height:250 }} src={this.state.file} resizeMode='contain' alt="note"/><br/>
                     </div>
                   </div>
                   <button type="submit">Upload</button>
