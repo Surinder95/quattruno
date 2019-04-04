@@ -13,11 +13,27 @@ class Card extends Component {
 
   render() {
     return (
-      <div className="card" style={{height: this.props.height, borderRadius: "5px"}}>
-        <div className="card-body" style={{paddingTop: "3rem"}}>
-          <h5 className="card-title" style={{fontSize: "2rem"}}>{this.props.title}</h5>
-          <h6> {this.props.upload} <br/></h6>
-          <p className="card-text" style={{paddingTop: "1rem"}}>{this.props.message}</p>
+      <div
+        className="card"
+        style={{ height: this.props.height, borderRadius: "5px" }}
+      >
+        <div className="card-body" style={{ paddingTop: "3rem" }}>
+          <h5
+            className="card-title Color-main-text"
+            style={{ fontSize: "2rem" }}
+          >
+            {this.props.title}
+          </h5>
+          <h6>
+            {" "}
+            {this.props.upload} <br />
+          </h6>
+          <p
+            className="card-text Color-main-text"
+            style={{ paddingTop: "1rem" }}
+          >
+            {this.props.message}
+          </p>
           <div> {this.props.body}</div>
           <div>{this.props.footer} </div>
         </div>

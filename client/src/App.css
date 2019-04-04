@@ -1,3 +1,10 @@
+:root {
+  --mmain-color: rgba(0, 123, 255, 0.9);
+  --mmain-color: rgb(117, 0, 0);
+  --main-color: black;
+  --mmain-color: rgb(50, 54, 57);
+}
+
 .App {
   text-align: center;
 }
@@ -31,7 +38,6 @@
     transform: rotate(360deg);
   }
 }
-
 
 label.price {
   font-weight: 700;
@@ -98,14 +104,12 @@ label.price:before {
   width: 100%;
   opacity: 0;
   transition: 0.2s ease;
-  background-color: rgba(0, 123, 255, 0.9);
+  background-color: var(--main-color);
 }
 
 .imagecont:hover .overlay {
   opacity: 1;
 }
-
-
 
 .text {
   color: white;
@@ -117,12 +121,48 @@ label.price:before {
   -ms-transform: translate(-50%, -50%);
 }
 
-.centerMe{
+.centerMe {
   text-align: center;
   height: 100%;
   width: 100%;
 }
 
-.rightText{
+.rightText {
   text-align: right;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: var(--main-color);
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+.Color-background {
+  background-color: #e9ebee;
+
+  height: 100%;
+}
+
+.Color-main {
+  background-color: var(--main-color);
+}
+
+.Color-main-text {
+  color: var(--main-color);
 }
