@@ -41,7 +41,7 @@ class Notes extends Component {
                       <img style={{ width:250, height:250 }} src={this.state.file} resizeMode='contain'/><br/>
                     </div>
                   </div>
-                  <button type="submit">Upload</button>
+                  <button className="btn btn-primary" type="submit">Upload</button>
                 </form>
               </div>
             </div>
@@ -52,7 +52,7 @@ class Notes extends Component {
               <Card
                 title="Notes"
                 height="55rem"
-                upload={<button style={{float:"right", margin:"10px"}} data-target="#uploadModal" data-toggle="modal"> Upload </button>}
+                upload={<button style={{float:"right", margin:"10px"}} className="btn btn-primary" data-target="#uploadModal" data-toggle="modal"> Upload </button>}
                 body={
                   <div className="card-deck">
                     <Note
@@ -83,7 +83,7 @@ class Notes extends Component {
                 }
                 footer={
                   <div>
-                    <button style={{margin:20}}> Load More </button>
+                    <button style={{margin:20}} className="btn btn-primary"> Load More </button>
                   </div>
                 }
               />

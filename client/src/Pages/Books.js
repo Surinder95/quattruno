@@ -9,6 +9,7 @@ class Books extends Component {
     super(props)
     this.state = {
       file: null
+
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -17,6 +18,11 @@ class Books extends Component {
     this.setState({
       file: URL.createObjectURL(e.target.files[0])
     })
+  }
+
+  appendToUserBookListings() {
+    var bookListings = [];
+    
   }
 
   render() {
@@ -41,7 +47,7 @@ class Books extends Component {
                     <img style={{ width:250, height:250 }} src={this.state.file} resizeMode='contain'/><br/>
                   </div>
                 </div>
-                <button type="submit">Upload</button>
+                <button className="btn btn-primary" onClick={() => {} } type="submit">Upload</button>
               </form>
             </div>
           </div>
@@ -51,7 +57,7 @@ class Books extends Component {
         <div className="col-lg-12">
           <Card
             title="Books"
-            upload={<button style={{float:"right", margin:"10px"}} data-target="#uploadModal" data-toggle="modal"> Upload </button>}
+            upload={<button style={{float:"right", margin:"10px"}} className="btn btn-primary" data-target="#uploadModal" data-toggle="modal"> Upload </button>}
             height="55rem"
             body={
               <div className="card-deck">

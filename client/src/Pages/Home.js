@@ -31,7 +31,7 @@ class Home extends Component {
                         <input type="text" className="form-control" placeholder="Class 6"/><br/>
                       </div>
                     </div>
-                    <button type="submit">Save</button>
+                    <button className= "btn btn-primary" type="submit">Save</button>
                   </form>
                 </div>
               </div>
@@ -40,13 +40,20 @@ class Home extends Component {
           <div className="container-fluid" id="container-scroll">
             <div className="row">
               <div className="col-sm-6 col-lg-3">
-                <button className="personalbubble" data-target="#classNumberModal" data-toggle="modal">
+                <br/>
+                <button className="personalbubble btn btn-primary" data-target="#classNumberModal" data-toggle="modal">
                   Update Classes
                 </button>
                 <br/>
                 <br/>
+                <button className="personalbubble btn btn-primary" data-target="#" data-toggle="modal">
+                  My Books
+                </button>
                 <br/>
-
+                <br/>
+                <button className="personalbubble btn btn-primary" data-target="#" data-toggle="modal">
+                  My Notes
+                </button>
               </div>
 
               <div className="col-sm-6 col-lg-3">
