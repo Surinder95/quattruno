@@ -88,40 +88,47 @@ class Home extends Component {
               >
                 My Notes
               </button>
+              {/*
+              <Card title="Surinder Singh" height="7rem" />
+              <br />
+              <br />
+              <Card title="Planner" height="7rem" />
+              <br />
+              <br />
+              <Card title="Classes" height="7rem" />
+              <br />
+              <br />
+              <Card title="Log Out" height="7rem" />
+              */}
+            </div>
+            <div className="col-sm-6 col-lg-3">
+              <Link to="/Books" className="noTextDecoration">
+                <Card
+                  title="Books"
+                  message="Buy and Sell Books"
+                  height="20rem"
+                />
+              </Link>
             </div>
 
-            <Card title="Surinder Singh" height="7rem" />
-            <br />
-            <br />
-            <Card title="Planner" height="7rem" />
-            <br />
-            <br />
-            <Card title="Classes" height="7rem" />
-            <br />
-            <br />
-            <Card title="Log Out" height="7rem" />
-          </div>
+            <div className="col-sm-12 col-lg-3">
+              <Link to="/Notes" className="noTextDecoration">
+                <Card title="Notes" message="Share Notes" height="20rem" />
+              </Link>
+            </div>
 
-          <div className="col-sm-6 col-lg-3">
-            <Link to="/Books" className="noTextDecoration">
-              <Card title="Books" message="Buy and Sell Books" height="20rem" />
-            </Link>
+            <div className="col-sm-12 col-lg-3">
+              <Link to="/RideSharing" className="noTextDecoration">
+                <Card
+                  title="Ridesharing"
+                  message="Ride Together"
+                  height="20rem"
+                />
+              </Link>
+            </div>
           </div>
-
-          <div className="col-sm-12 col-lg-3">
-            <Link to="/Notes" className="noTextDecoration">
-              <Card title="Notes" message="Share Notes" height="20rem" />
-            </Link>
-          </div>
-
-          <div className="col-sm-12 col-lg-3">
-            <Link to="/RideSharing" className="noTextDecoration">
-              <Card
-                title="Ridesharing"
-                message="Ride Together"
-                height="20rem"
-              />
-            </Link>
+          <div className="row">
+            <br style={{ height: "100%" }} />
           </div>
         </div>
       </div>

@@ -8,9 +8,8 @@ class Books extends Component {
     super(props);
     this.state = {
       file: null
-
-    }
-    this.handleChange = this.handleChange.bind(this)
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
@@ -21,7 +20,6 @@ class Books extends Component {
 
   appendToUserBookListings() {
     var bookListings = [];
-
   }
 
   render() {
@@ -85,7 +83,9 @@ class Books extends Component {
                       <br />
                     </div>
                   </div>
-                  <button type="submit">Upload</button>
+                  <button className="btn btn-primary" type="submit">
+                    Upload
+                  </button>
                 </form>
               </div>
             </div>
@@ -102,6 +102,7 @@ class Books extends Component {
               upload={
                 <button
                   style={{ float: "right", margin: "10px" }}
+                  className="btn btn-primary"
                   data-target="#uploadModal"
                   data-toggle="modal"
                 >
@@ -142,19 +143,15 @@ class Books extends Component {
                   />
                 </div>
               }
+              footer={
+                <div>
+                  <button style={{ margin: 20 }} className="btn btn-primary">
+                    {" "}
+                    Load More{" "}
+                  </button>
+                </div>
+              }
             />
-            <div class="pagination">
-              <a href="#">&laquo;</a>
-              <a href="#">1</a>
-              <a href="#" class="active">
-                2
-              </a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <a href="#">6</a>
-              <a href="#">&raquo;</a>
-            </div>
           </div>
         </div>
       </div>

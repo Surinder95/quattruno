@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App Color-background">
+        <div className="App Color-background" style={{ height: "100vh" }}>
           <Navbar />
           <Route exact path="/" component={Home} />
           <Route path="/Books" component={Books} />
@@ -27,7 +27,6 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
           </div>
-          <div className="Color-background"> .</div>
         </div>
       </Router>
     );

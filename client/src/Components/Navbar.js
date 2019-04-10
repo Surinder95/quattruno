@@ -57,7 +57,7 @@ class Navbar extends Component {
                   style={{
                     color: "#FFFFFF",
                     fontSize: 35,
-                    fontWeight: 430,
+                    fontWeight: 460,
                     paddingLeft: 40
                   }}
                 >
