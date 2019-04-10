@@ -14,7 +14,7 @@ class Card extends Component {
   render() {
     return (
       <div
-        className="card"
+        className="card personalbubble"
         style={{ height: this.props.height, borderRadius: "5px" }}
       >
         <div className="card-body" style={{ paddingTop: "3rem" }}>

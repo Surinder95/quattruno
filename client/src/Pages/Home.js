@@ -50,84 +50,78 @@ class Home extends Component {
                       />
                       <br />
                     </div>
-                    <div className="col">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Class 4"
-                      />
-                      <br />
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Class 5"
-                      />
-                      <br />
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Class 6"
-                      />
-                      <br />
-                    </div>
                   </div>
-                  <button type="submit">Save</button>
+                  <button className="btn btn-primary" type="submit">
+                    Save
+                  </button>
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <div
-          className="container-fluid"
-          id="container-scroll"
-          style={{ padding: "30px" }}
-        >
+        <div className="container-fluid" id="container-scroll">
           <div className="row">
             <div className="col-sm-6 col-lg-3">
-              <button data-target="#classNumberModal" data-toggle="modal">
+              <br />
+              <button
+                className="personalbubble btn btn-primary"
+                data-target="#classNumberModal"
+                data-toggle="modal"
+              >
                 Update Classes
               </button>
               <br />
               <br />
-              <br />
-
-              <Card title="Surinder Singh" height="7rem" />
-              <br />
-              <br />
-              <Card title="Planner" height="7rem" />
-              <br />
-              <br />
-              <Card title="Classes" height="7rem" />
+              <button
+                className="personalbubble btn btn-primary"
+                data-target="#"
+                data-toggle="modal"
+              >
+                My Books
+              </button>
               <br />
               <br />
-              <Card title="Log Out" height="7rem" />
+              <button
+                className="personalbubble btn btn-primary"
+                data-target="#"
+                data-toggle="modal"
+              >
+                My Notes
+              </button>
             </div>
 
-            <div className="col-sm-6 col-lg-3">
-              <Link to="/Books" className="noTextDecoration">
-                <Card
-                  title="Books"
-                  message="Buy and Sell Books"
-                  height="20rem"
-                />
-              </Link>
-            </div>
+            <Card title="Surinder Singh" height="7rem" />
+            <br />
+            <br />
+            <Card title="Planner" height="7rem" />
+            <br />
+            <br />
+            <Card title="Classes" height="7rem" />
+            <br />
+            <br />
+            <Card title="Log Out" height="7rem" />
+          </div>
 
-            <div className="col-sm-12 col-lg-3">
-              <Link to="/Notes" className="noTextDecoration">
-                <Card title="Notes" message="Share Notes" height="20rem" />
-              </Link>
-            </div>
+          <div className="col-sm-6 col-lg-3">
+            <Link to="/Books" className="noTextDecoration">
+              <Card title="Books" message="Buy and Sell Books" height="20rem" />
+            </Link>
+          </div>
 
-            <div className="col-sm-12 col-lg-3">
-              <Link to="/RideSharing" className="noTextDecoration">
-                <Card
-                  title="Ridesharing"
-                  message="Ride Together"
-                  height="20rem"
-                />
-              </Link>
-            </div>
+          <div className="col-sm-12 col-lg-3">
+            <Link to="/Notes" className="noTextDecoration">
+              <Card title="Notes" message="Share Notes" height="20rem" />
+            </Link>
+          </div>
+
+          <div className="col-sm-12 col-lg-3">
+            <Link to="/RideSharing" className="noTextDecoration">
+              <Card
+                title="Ridesharing"
+                message="Ride Together"
+                height="20rem"
+              />
+            </Link>
           </div>
         </div>
       </div>

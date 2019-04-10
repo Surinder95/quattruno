@@ -8,14 +8,20 @@ class Books extends Component {
     super(props);
     this.state = {
       file: null
-    };
-    this.handleChange = this.handleChange.bind(this);
+
+    }
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(e) {
     this.setState({
       file: URL.createObjectURL(e.target.files[0])
     });
+  }
+
+  appendToUserBookListings() {
+    var bookListings = [];
+
   }
 
   render() {

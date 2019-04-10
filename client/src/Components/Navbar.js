@@ -57,7 +57,8 @@ class Navbar extends Component {
                   style={{
                     color: "#FFFFFF",
                     fontSize: 35,
-                    fontWeight: 730
+                    fontWeight: 430,
+                    paddingLeft: 40
                   }}
                 >
                   CSUN Hub

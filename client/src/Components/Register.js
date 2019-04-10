@@ -36,10 +36,10 @@ class Register extends Component {
             })
         else
             alert('Invalid')
-    
 
 
-        
+
+
     }
 
     render () {
@@ -54,7 +54,7 @@ class Register extends Component {
                                 <input type="text"
                                     className="form-control"
                                     name="first_name"
-                                    placeholder="Enter Fist Name"
+                                    placeholder="Enter First Name"
                                     value={this.state.first_name}
                                     onChange={this.onChange}
                                 />
