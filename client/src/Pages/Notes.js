@@ -26,8 +26,7 @@ class Notes extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h3 className="text-center text-primary centerMe">
-                  {" "}
-                  Upload Notes{" "}
+                  Upload Notes
                 </h3>
                 <button
                   type="button"
@@ -70,15 +69,20 @@ class Notes extends Component {
                         placeholder="Date"
                       />
                       <br />
-                      <input type="file" onChange={this.handleChange} />
+                      <input
+                        className="btn"
+                        type="file"
+                        onChange={this.handleChange}
+                      />
+                      <br />
                       <img
-                        style={{ width: 250, height: 250 }}
+                        style={{ width: 320, height: 320 }}
                         src={this.state.file}
                         resizeMode="contain"
                       />
-                      <br />
                     </div>
                   </div>
+                  <br />
                   <button className="btn btn-primary" type="submit">
                     Upload
                   </button>
@@ -86,6 +90,7 @@ class Notes extends Component {
               </div>
             </div>
           </div>
+          <div id="modal-backdrop" className="modal-backdrop-transparent" />
         </div>
         <div className="container-fluid" id="container-scroll">
           <div className="col-lg-12">

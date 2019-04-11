@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import "../App.css";
 
-class Modal extends Component {
+class UploadModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,8 +27,7 @@ class Modal extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h3 className="text-center text-primary centerMe">
-                  {" "}
-                  Upload Book{" "}
+                  Upload Book
                 </h3>
                 <button
                   type="button"
@@ -73,18 +71,19 @@ class Modal extends Component {
                       />
                       <br />
                       <input
-                        className="btn btn-primary"
+                        className="btn"
                         type="file"
                         onChange={this.handleChange}
                       />
+                      <br />
                       <img
-                        style={{ width: 250, height: 250 }}
+                        style={{ width: 320, height: 320 }}
                         src={this.state.file}
                         resizeMode="contain"
                       />
-                      <br />
                     </div>
                   </div>
+                  <br />
                   <button className="btn btn-primary" type="submit">
                     Upload
                   </button>
@@ -92,9 +91,10 @@ class Modal extends Component {
               </div>
             </div>
           </div>
+          <div id="modal-backdrop" className="modal-backdrop-transparent" />
         </div>
       </div>
     );
   }
 }
-export default Modal;
+export default UploadModal;

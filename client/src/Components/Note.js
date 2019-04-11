@@ -43,7 +43,7 @@ class Note extends Component {
 
           <div className="lightbox-target" id="note">
             <img
-              className="card-img-top"
+              className="center"
               src={require("../Images/math-notes.JPG")}
               alt="notes"
             />

@@ -16,7 +16,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App Color-background" style={{ height: "100vh" }}>
+        <div
+          className="App Color-background"
+          style={{ minHeight: "100vh", height: "100%" }}
+        >
           <Navbar />
           <Route exact path="/" component={Home} />
           <Route path="/Books" component={Books} />

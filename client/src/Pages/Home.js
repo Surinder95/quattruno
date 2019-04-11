@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Card from "../Components/Card.js";
+import UserBooksModal from "../Components/Modals/UserBooksModal.js";
+import UserNotesModal from "../Components/Modals/UserNotesModal.js";
 import "../App.css";
 //import ClassNumberModal from "../Components/Card.js";
 //import { Modal, OverlayTrigger, Button } from "react-bootstrap";
@@ -58,7 +60,10 @@ class Home extends Component {
               </div>
             </div>
           </div>
+          <div id="modal-backdrop" className="modal-backdrop-transparent" />
         </div>
+        <UserBooksModal />
+        <UserNotesModal />
         <div className="container-fluid" id="container-scroll">
           <div className="row">
             <div className="col-sm-6 col-lg-3">
@@ -74,7 +79,7 @@ class Home extends Component {
               <br />
               <button
                 className="personalbubble btn btn-primary"
-                data-target="#"
+                data-target="#userBooksModal"
                 data-toggle="modal"
               >
                 My Books
@@ -83,7 +88,7 @@ class Home extends Component {
               <br />
               <button
                 className="personalbubble btn btn-primary"
-                data-target="#"
+                data-target="#userNotesModal"
                 data-toggle="modal"
               >
                 My Notes
