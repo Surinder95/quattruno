@@ -30,3 +30,5 @@ module.exports = db.sequelize.define(
         timestamps: false
     }
 )
+
+///HOO
