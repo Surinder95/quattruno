@@ -26,12 +26,13 @@ class Note extends Component {
     return (
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title mb-2">
+          <h6 className="card-subtitle mb-2">
             {this.props.course} : {this.props.teacher}
-          </h5>
+          </h6>
           <h6 className="card-subtitle mb-2 rightText"> {this.props.date} </h6>
-          <p className="card-text">{this.props.comments}</p>
+          <p className="card-text commentFont">{this.props.comments}</p>
           <br />
+
           <a className="lightbox" href="#note">
             <img
               className="card-img-top"
@@ -39,6 +40,7 @@ class Note extends Component {
               alt="notes"
             />
           </a>
+
           <div className="lightbox-target" id="note">
             <img
               className="card-img-top"

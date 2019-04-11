@@ -15,19 +15,16 @@ class Card extends Component {
     return (
       <div
         className="card personalbubble"
-        style={{ height: this.props.height, borderRadius: "5px" }}
+        style={{ height: "flex", minHeight: "20rem", borderRadius: "5px" }}
       >
-        <div className="card-body" style={{ paddingTop: "3rem" }}>
+        <div className="card-body" style={{ paddingTop: "2rem" }}>
           <h5
             className="card-title Color-main-text"
             style={{ fontSize: "2rem" }}
           >
             {this.props.title}
+            {this.props.upload}
           </h5>
-          <h6>
-            {" "}
-            {this.props.upload} <br />
-          </h6>
           <p
             className="card-text Color-main-text"
             style={{ paddingTop: "1rem" }}

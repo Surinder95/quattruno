@@ -127,9 +127,6 @@ class Home extends Component {
               </Link>
             </div>
           </div>
-          <div className="row">
-            <br style={{ height: "100%" }} />
-          </div>
         </div>
       </div>
     );
