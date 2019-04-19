@@ -14,10 +14,11 @@ class Books extends Component {
   //   this.handleChange = this.handleChange.bind(this)
   // }
 
-  constructor(){
+  constructor(props){
     super();
     this.state={
         books:[]
+
     }
   }
 
@@ -38,15 +39,42 @@ class Books extends Component {
 
   render() {
     return (
+      <div>
+
+
 
       <div>
-            <h2>Books</h2>
-            <ul>
-                {this.state.books.map(book => 
-                <li key={book.id}>{book.title} {book.description}</li>
-                )}
+      <form>
+                <div className="row">
+                  <div className="col">
+                    <input type="text" name="title" className="form-control" placeholder="Title"/><br/>
+                    <input type="text" name="price" className="form-control" placeholder="Price"/><br/>
+                    <input type="text" name="course" className="form-control" placeholder="Course"/><br/>
+                    <input type="text" name="description" className="form-control" placeholder="Description"/><br/>
+                    <input type="file" onChange={this.handleChange}/>
+                    <img style={{ width:250, height:250 }} src={this.state.file} resizeMode='contain'/><br/>
+                  </div>
+                </div>
+                <button className="btn btn-primary" onClick={() => {} } type="submit">Upload</button>
+              </form>
+      </div>
+
+      <div>
+          <h2>Books</h2>
+          <ul>
+              {this.state.books.map(book => 
+              <li key={book.id}>{book.title} {book.description}</li>
+              )}
         </ul>
-        </div>
+      </div>
+
+
+
+
+      </div>
+      
+
+
 
 
 
@@ -59,21 +87,7 @@ class Books extends Component {
       //         <h3 className="text-center text-primary centerMe"> Upload Book </h3>
       //         <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       //       </div>
-      //       <div className="modal-body">
-      //         <form>
-      //           <div className="row">
-      //             <div className="col">
-      //               <input type="text" id="title" className="form-control" placeholder="Title"/><br/>
-      //               <input type="text" id="price" className="form-control" placeholder="Price"/><br/>
-      //               <input type="text" id="course" className="form-control" placeholder="Course"/><br/>
-      //               <input type="text" id="description" className="form-control" placeholder="Description"/><br/>
-      //               <input type="file" onChange={this.handleChange}/>
-      //               <img style={{ width:250, height:250 }} src={this.state.file} resizeMode='contain'/><br/>
-      //             </div>
-      //           </div>
-      //           <button className="btn btn-primary" onClick={() => {} } type="submit">Upload</button>
-      //         </form>
-      //       </div>
+            
       //     </div>
       //   </div>
       // </div>
