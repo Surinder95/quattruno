@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "../App.css";
 import Card from "../Components/Card.js";
 import Book from "../Components/Book.js";
+import { connect } from 'react-redux';
+import { getBooks, deleteBook } from '../actions/bookActions';
+import PropTypes from 'prop-types';
 
 class Books extends Component {
 
@@ -9,7 +12,6 @@ class Books extends Component {
     super(props)
     this.state = {
       file: null
-
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -20,12 +22,12 @@ class Books extends Component {
     })
   }
 
-  appendToUserBookListings() {
-    var bookListings = [];
-    
+  componentDidMount(){
+    this.props.getBooks();
   }
 
   render() {
+    const { books } = this.props.book;
     return (
       <div>
       <div className="modal" id="uploadModal" data-backdrop="false">
@@ -39,10 +41,10 @@ class Books extends Component {
               <form>
                 <div className="row">
                   <div className="col">
-                    <input type="text" id="title" className="form-control" placeholder="Title"/><br/>
-                    <input type="text" id="price" className="form-control" placeholder="Price"/><br/>
-                    <input type="text" id="course" className="form-control" placeholder="Course"/><br/>
-                    <input type="text" id="description" className="form-control" placeholder="Description"/><br/>
+                    <input type="text" name="title" className="form-control" placeholder="Title"/><br/>
+                    <input type="text" name="price" className="form-control" placeholder="Price"/><br/>
+                    <input type="text" name="course" className="form-control" placeholder="Course"/><br/>
+                    <input type="text" name="description" className="form-control" placeholder="Description"/><br/>
                     <input type="file" onChange={this.handleChange}/>
                     <img style={{ width:250, height:250 }} src={this.state.file} resizeMode='contain'/><br/>
                   </div>
@@ -61,34 +63,17 @@ class Books extends Component {
             height="55rem"
             body={
               <div className="card-deck">
-                <Book
-                  price="100"
-                  title="Intro to Operating Systems"
-                  course="COMP 322"
-                  description="Hard-Cover book, bought brand-new and used for a semester. Email if interested only"
-                  contactInfo="someonesPrivate@email.com"
-                />
-                <Book
-                  price="79"
-                  title="Data Mining"
-                  course="COMP 484"
-                  description="Selling as a SET 'Psychological Assessment with the MMPI-2' Alan F. Friedman, Richard Lewak, David S. Nicols, James T. Webb 'Essentials of the PAI Assessment' Leslie C. ..."
-                  contactInfo="someoneElse@email.com"
-                />
-                <Book
-                  price="30"
-                  title="Combinatorial Algorithms"
-                  course="COMP 482"
-                  description="First come first serve"
-                  contactInfo="anotherSomeone@email.com"
-                />
-                <Book
-                  price="55"
-                  title="Discrete Structures"
-                  course="COMP 252"
-                  description="Have many other books for sale"
-                  contactInfo="yes@email.com"
-                />
+
+                {books.map(({ id, title, description, course, price }) => (
+                  <Book
+                    price= {price}
+                    title= {title}
+                    course= {course}
+                    description= {description}
+                    contactInfo= {null}
+                  />
+                ))}
+
               </div>
             }
           />
@@ -99,4 +84,13 @@ class Books extends Component {
   }
 }
 
-export default Books;
+Books.propTypes = {
+  getBooks: PropTypes.func.isRequired,
+  book: PropTypes.object.isRequired 
+}
+
+const mapStateToProps = (state) => ({
+  book: state.book
+});
+
+export default connect(mapStateToProps, { getBooks })(Books);

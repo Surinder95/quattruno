@@ -10,25 +10,29 @@ import Home from "./Pages/Home";
 import Books from "./Pages/Books";
 import Notes from "./Pages/Notes";
 import RideSharing from "./Pages/RideSharing";
+import { Provider } from 'react-redux';
+import store from './store';
 import "./App.css";
 
 class App extends Component {
   render () {
     return (
-      <Router>
-        <div className="App">
-          <Navbar />
-          <Route exact path="/" component={Home} />
-          <Route path="/Books" component={Books} />
-          <Route path="/Notes" component={Notes} />
-          <Route path="/RideSharing" component={RideSharing} />
-          <div className="container">
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/profile" component={Profile} />
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Route exact path="/" component={Home} />
+            <Route path="/Books" component={Books} />
+            <Route path="/Notes" component={Notes} />
+            <Route path="/RideSharing" component={RideSharing} />
+            <div className="container">
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/profile" component={Profile} />
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </Provider>
     );
   }
 }

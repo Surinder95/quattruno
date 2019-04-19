@@ -1,26 +1,39 @@
 {
-  "name": "mern-mysql-loginreg",
+  "name": "senior_design_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "490 CsunHub",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "client-install" : "npm install --prefix client",
+    "server": "nodemon server.js",
+    "start": "node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Surinder",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "3.0.0",
-    "body-parser": "^1.17.2",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "cors": "^2.8.4",
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "git": "^0.1.5",
     "jsonwebtoken": "^7.4.2",
     "jwt-decode": "^2.2.0",
+    "mongoose": "^5.5.0",
     "mysql": "^2.14.1",
     "mysql2": "^1.6.1",
-    "nodemon": "^1.18.3",
     "react-router-dom": "^4.3.1",
     "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "i": "^0.3.6",
+    "nodemon": "^1.18.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(index.js) server.js"
   }
 }
