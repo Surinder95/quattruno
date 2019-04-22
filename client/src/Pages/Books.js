@@ -5,9 +5,51 @@ import Book from "../Components/Book.js";
 import UploadModal from "../Components/Modals/UploadModal.js";
 
 class Books extends Component {
+
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     file: null
+
+  //   }
+  //   this.handleChange = this.handleChange.bind(this)
+  // }
+
+  constructor(){
+    super();
+    this.state={
+        books:[]
+    }
+  }
+
+  componentDidMount() {
+    fetch('/books')
+      .then(res => res.json())
+      .then(books => this.setState({books}, () => console.log(books)));
+  }
+
+
+  // handleChange(e) {
+  //   this.setState({
+  //     file: URL.createObjectURL(e.target.files[0])
+  //   })
+  // }
+
+  
+
   render() {
     return (
+
       <div>
+
+        <h2>Books</h2>
+        <ul>
+            {this.state.books.map(book => 
+            <li key={book.id}>{book.title} {book.description}</li>
+            )}
+        </ul>
+
+
         <UploadModal />
         <div
           className="container-fluid"

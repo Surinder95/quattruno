@@ -12,20 +12,21 @@ class Book extends Component {
     contactInfo: this.props.contactInfo
   };
 
+
   render() {
     return (
       <div className="card">
         <div className="imagecont">
           <img
             className="card-img-top"
-            src={require("../Images/book-picture-example2.jpg")}
+            //src={require("../Images/book-picture-example2.jpg")}
             alt="Textbook"
           />
-          <div className="overlay">
+          {/* <div className="overlay">
             <div className="text">
               If interested contact {this.props.contactInfo}
             </div>
-          </div>
+          </div> */}
         </div>
         <label className="price">${this.props.price}</label>
         <div className="card-body">
@@ -37,6 +38,7 @@ class Book extends Component {
           <small className="text-muted">Last updated 3 mins ago</small>
         </div>
       </div>
+       
     );
   }
 }
