@@ -33,7 +33,7 @@ class Note extends Component {
           <p className="card-text commentFont">{this.props.comments}</p>
           <br />
 
-          <a className="lightbox" href="#note">
+          <a href="#note" className="lightbox">
             <img
               className="card-img-top"
               src={require("../Images/math-notes.JPG")}
@@ -47,7 +47,7 @@ class Note extends Component {
               src={require("../Images/math-notes.JPG")}
               alt="notes"
             />
-            <a className="lightbox-close" href="#" />
+            <a href="#" className="lightbox-close" />
           </div>
         </div>
         <div className="card-footer">

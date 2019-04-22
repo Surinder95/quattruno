@@ -15,9 +15,11 @@ class UploadModal extends Component {
     });
   }
 
+  /** 
   appendToUserBookListings() {
     var bookListings = [];
   }
+  */
 
   render() {
     return (
@@ -80,6 +82,7 @@ class UploadModal extends Component {
                         style={{ width: 320, height: 320 }}
                         src={this.state.file}
                         resizeMode="contain"
+                        alt="book"
                       />
                     </div>
                   </div>

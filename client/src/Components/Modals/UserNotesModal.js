@@ -1,24 +1,6 @@
 import React, { Component } from "react";
 
 class UserNotesModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      file: null
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e) {
-    this.setState({
-      file: URL.createObjectURL(e.target.files[0])
-    });
-  }
-
-  appendToUserBookListings() {
-    var bookListings = [];
-  }
-
   render() {
     return (
       <div>
@@ -36,10 +18,7 @@ class UserNotesModal extends Component {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div className="modal-body">
-                <a href="#">Note 1</a> <a href="#">Note 2</a>{" "}
-                <a href="#">Note 3</a> <a href="#">...</a>
-              </div>
+              <div className="modal-body">hello</div>
             </div>
           </div>
           <div id="modal-backdrop" className="modal-backdrop-transparent" />

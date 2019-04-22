@@ -79,6 +79,7 @@ class Notes extends Component {
                         style={{ width: 320, height: 320 }}
                         src={this.state.file}
                         resizeMode="contain"
+                        alt="note"
                       />
                     </div>
                   </div>

@@ -1,24 +1,7 @@
 import React, { Component } from "react";
+import Book from "../Book.js";
 
 class UserBooksModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      file: null
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e) {
-    this.setState({
-      file: URL.createObjectURL(e.target.files[0])
-    });
-  }
-
-  appendToUserBookListings() {
-    var bookListings = [];
-  }
-
   render() {
     return (
       <div>
@@ -37,8 +20,22 @@ class UserBooksModal extends Component {
                 </button>
               </div>
               <div className="modal-body">
-                <a href="#">Book 1</a> <a href="#">Book 2</a>{" "}
-                <a href="#">Book 3</a> <a href="#">...</a>
+                <div className="card-deck">
+                  <Book
+                    price="100"
+                    title="Intro to Operating Systems"
+                    course="COMP 322"
+                    description="Hard-Cover book, bought brand-new and used for a semester. Email if interested only"
+                    contactInfo="someonesPrivate@email.com"
+                  />
+                  <Book
+                    price="79"
+                    title="Data Mining"
+                    course="COMP 484"
+                    description="Selling as a SET 'Psychological Assessment with the MMPI-2' Alan F. Friedman, Richard Lewak, David S. Nicols, James T. Webb 'Essentials of the PAI Assessment' Leslie C. ..."
+                    contactInfo="someoneElse@email.com"
+                  />
+                </div>
               </div>
             </div>
           </div>
