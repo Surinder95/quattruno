@@ -5,7 +5,6 @@ import Book from "../Components/Book.js";
 import UploadModal from "../Components/Modals/UploadModal.js";
 
 class Books extends Component {
-
   // constructor(props){
   //   super(props)
   //   this.state = {
@@ -15,19 +14,22 @@ class Books extends Component {
   //   this.handleChange = this.handleChange.bind(this)
   // }
 
-  constructor(){
+  constructor() {
     super();
-    this.state={
-        books:[]
-    }
+    this.state = {
+      books: []
+    };
   }
 
   componentDidMount() {
-    fetch('/books')
-      .then(res => res.json())
-      .then(books => this.setState({books}, () => console.log(books)));
+    try {
+      fetch("/books")
+        .then(res => res.json())
+        .then(books => this.setState({ books }, () => console.log(books)));
+    } catch (err) {
+      console.log(err);
+    }
   }
-
 
   // handleChange(e) {
   //   this.setState({
@@ -35,21 +37,9 @@ class Books extends Component {
   //   })
   // }
 
-  
-
   render() {
     return (
-
       <div>
-
-        <h2>Books</h2>
-        <ul>
-            {this.state.books.map(book => 
-            <li key={book.id}>{book.title} {book.description}</li>
-            )}
-        </ul>
-
-
         <UploadModal />
         <div
           className="container-fluid"
@@ -73,13 +63,19 @@ class Books extends Component {
               body={
                 <div>
                   <div className="card-deck">
-                    <Book
-                      price="100"
-                      title="Intro to Operating Systems"
-                      course="COMP 322"
-                      description="Hard-Cover book, bought brand-new and used for a semester. Email if interested only"
-                      contactInfo="someonesPrivate@email.com"
-                    />
+                    {this.state.books.map(
+                      ({ title, image, description, price }) => (
+                        <Book
+                          price={price}
+                          title={title}
+                          image={image}
+                          course={null}
+                          description={description}
+                          contactInfo={null}
+                        />
+                      )
+                    )}
+                    {/* 
                     <Book
                       price="79"
                       title="Data Mining"
@@ -100,7 +96,7 @@ class Books extends Component {
                       course="COMP 482"
                       description="First come first serve"
                       contactInfo="anotherSomeone@email.com"
-                    />
+                    /> */}
                   </div>
                 </div>
               }
