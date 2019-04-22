@@ -81,7 +81,7 @@ class UploadModal extends Component {
                       <img
                         style={{ width: 320, height: 320 }}
                         src={this.state.file}
-                        resizeMode="contain"
+                        resizemode="contain"
                         alt="book"
                       />
                     </div>

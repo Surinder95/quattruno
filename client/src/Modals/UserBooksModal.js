@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Book from "../Book.js";
+import Book from "../Components/Book.js";
 
 class UserBooksModal extends Component {
   render() {

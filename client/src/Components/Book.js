@@ -17,11 +17,11 @@ class Book extends Component {
       <div className="card">
         <div className="imagecont">
           <img className="card-img-top" src={this.props.image} alt="Textbook" />
-          {/* <div className="overlay">
+          <div className="overlay">
             <div className="text">
               If interested contact {this.props.contactInfo}
             </div>
-          </div> */}
+          </div>
         </div>
         <label className="price">${this.props.price}</label>
         <div className="card-body">

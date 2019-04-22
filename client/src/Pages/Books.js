@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import Card from "../Components/Card.js";
 import Book from "../Components/Book.js";
-import UploadModal from "../Components/Modals/UploadModal.js";
+import UploadModal from "../Modals/UploadModal.js";
 
 class Books extends Component {
   // constructor(props){
@@ -22,13 +22,9 @@ class Books extends Component {
   }
 
   componentDidMount() {
-    try {
-      fetch("/books")
-        .then(res => res.json())
-        .then(books => this.setState({ books }, () => console.log(books)));
-    } catch (err) {
-      console.log(err);
-    }
+    fetch("/books")
+      .then(res => res.json())
+      .then(books => this.setState({ books }, () => console.log(books)));
   }
 
   // handleChange(e) {
@@ -63,18 +59,17 @@ class Books extends Component {
               body={
                 <div>
                   <div className="card-deck">
-                    {this.state.books.map(
-                      ({ title, image, description, price }) => (
-                        <Book
-                          price={price}
-                          title={title}
-                          image={image}
-                          course={null}
-                          description={description}
-                          contactInfo={null}
-                        />
-                      )
-                    )}
+                    {this.state.books.map(book => (
+                      <Book
+                        key={book._id}
+                        price={book.price}
+                        title={book.title}
+                        image={book.image}
+                        course={null}
+                        description={book.description}
+                        contactInfo={null}
+                      />
+                    ))}
                     {/* 
                     <Book
                       price="79"

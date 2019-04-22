@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Card from "../Components/Card.js";
-import UserBooksModal from "../Components/Modals/UserBooksModal.js";
-import UserNotesModal from "../Components/Modals/UserNotesModal.js";
+import UserBooksModal from "../Modals/UserBooksModal.js";
+import UserNotesModal from "../Modals/UserNotesModal.js";
 import "../App.css";
 //import ClassNumberModal from "../Components/Card.js";
 //import { Modal, OverlayTrigger, Button } from "react-bootstrap";

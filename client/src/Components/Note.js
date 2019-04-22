@@ -36,7 +36,7 @@ class Note extends Component {
           <a href="#note" className="lightbox">
             <img
               className="card-img-top"
-              src={require("../Images/math-notes.JPG")}
+              //src={require("../Images/math-notes.JPG")}
               alt="notes"
             />
           </a>
@@ -44,7 +44,7 @@ class Note extends Component {
           <div className="lightbox-target" id="note">
             <img
               className="center"
-              src={require("../Images/math-notes.JPG")}
+              //src={require("../Images/math-notes.JPG")}
               alt="notes"
             />
             <a href="#" className="lightbox-close" />
