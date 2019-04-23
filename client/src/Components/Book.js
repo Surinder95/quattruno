@@ -17,21 +17,28 @@ class Book extends Component {
       <div className="card">
         <div className="imagecont">
           <img className="card-img-top" src={this.props.image} alt="Textbook" />
-          <div className="overlay">
-            <div className="text">
-              If interested contact {this.props.contactInfo}
-            </div>
-          </div>
         </div>
+
         <label className="price">${this.props.price}</label>
+
         <div className="card-body">
           <h5 className="card-title">{this.props.title}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{this.props.course}</h6>
           <p className="card-text">{this.props.description}</p>
+            <button className="btn btn-outline-primary">
+
+            {/* <a className="removeBlueText" href="mailto:{user.email}?Subject=Still%20Available">Message</a> 
+              I THINK THIS IS HOW WE GET IT TO RUN DYNAMICALLY ^ by putting user.email in brackets but idk if that'll work within the double quotes
+            */}
+
+             <a className="removeBlueText" href="mailto:someone@example.com?Subject=Hello%20again">Message</a>
+            </button>
         </div>
+
         <div className="card-footer">
           <small className="text-muted">Last updated 3 mins ago</small>
         </div>
+        
       </div>
     );
   }

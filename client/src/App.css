@@ -317,3 +317,7 @@ a.lightbox-close:after {
   z-index: -3;
 }
 
+.removeBlueText {
+  text-decoration:none; 
+  color:inherit;
+}
