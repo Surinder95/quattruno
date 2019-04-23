@@ -5,33 +5,62 @@ import Book from "../Components/Book.js";
 import UploadModal from "../Modals/UploadModal.js";
 
 class Books extends Component {
-  // constructor(props){
-  //   super(props)
-  //   this.state = {
-  //     file: null
-
-  //   }
-  //   this.handleChange = this.handleChange.bind(this)
-  // }
-
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      books: []
+      books: [],
+      page: 1,
+      error: false
     };
+    this.updateBooks = this.updateBooks.bind(this);
   }
 
   componentDidMount() {
     fetch("/books")
       .then(res => res.json())
-      .then(books => this.setState({ books }, () => console.log(books)));
+      .then(books => this.setState({ books }, () => console.log(books)))
+      .catch(error => {
+        console.error(error);
+        this.setState({
+          error: true
+        });
+      });
   }
 
-  // handleChange(e) {
-  //   this.setState({
-  //     file: URL.createObjectURL(e.target.files[0])
-  //   })
-  // }
+  renderBooks = () => {
+    const { books, page } = this.state;
+    //console.log("DisplatAmt:" + this.state.displayAmt);
+    //console.log(books);
+    var table = [];
+
+    for (var i = 0; i < page; i++) {
+      table.push(
+        <div className="card-deck" key={i} style={{ paddingBottom: "10px" }}>
+          {books
+            //.filter(book => book < page)
+            .slice(i * 5, 5 + i * 5)
+            .map(book => (
+              <Book
+                key={book._id}
+                price={book.price}
+                title={book.title}
+                image={book.image}
+                course={null}
+                description={book.description}
+                contactInfo={null}
+              />
+            ))}
+        </div>
+      );
+    }
+    return table;
+  };
+
+  updateBooks() {
+    this.setState(prev => {
+      return { page: prev.page + 1 };
+    });
+  }
 
   render() {
     return (
@@ -56,52 +85,15 @@ class Books extends Component {
                 </button>
               }
               height="55rem"
-              body={
-                <div>
-                  <div className="card-deck">
-                    {this.state.books.map(book => (
-                      <Book
-                        key={book._id}
-                        price={book.price}
-                        title={book.title}
-                        image={book.image}
-                        course={null}
-                        description={book.description}
-                        contactInfo={null}
-                      />
-                    ))}
-                    {/* 
-                    <Book
-                      price="79"
-                      title="Data Mining"
-                      course="COMP 484"
-                      description="Selling as a SET 'Psychological Assessment with the MMPI-2' Alan F. Friedman, Richard Lewak, David S. Nicols, James T. Webb 'Essentials of the PAI Assessment' Leslie C. ..."
-                      contactInfo="someoneElse@email.com"
-                    />
-                    <Book
-                      price="30"
-                      title="Combinatorial Algorithms"
-                      course="COMP 482"
-                      description="First come first serve"
-                      contactInfo="anotherSomeone@email.com"
-                    />
-                    <Book
-                      price="30"
-                      title="Combinatorial Algorithms"
-                      course="COMP 482"
-                      description="First come first serve"
-                      contactInfo="anotherSomeone@email.com"
-                    /> */}
-                  </div>
-                </div>
-              }
+              body={this.renderBooks()}
               footer={
-                <div>
-                  <button style={{ margin: 20 }} className="btn btn-primary">
-                    {" "}
-                    Load More{" "}
-                  </button>
-                </div>
+                <button
+                  style={{ margin: 20 }}
+                  className="btn btn-primary"
+                  onClick={() => this.updateBooks()}
+                >
+                  Load More
+                </button>
               }
             />
           </div>
