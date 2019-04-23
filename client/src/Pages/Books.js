@@ -32,13 +32,14 @@ class Books extends Component {
     //console.log("DisplatAmt:" + this.state.displayAmt);
     //console.log(books);
     var table = [];
+    var booksPerRow = 4;
 
     for (var i = 0; i < page; i++) {
       table.push(
         <div className="card-deck" key={i} style={{ paddingBottom: "10px" }}>
           {books
             //.filter(book => book < page)
-            .slice(i * 5, 5 + i * 5)
+            .slice(i * booksPerRow, booksPerRow + i * booksPerRow)
             .map(book => (
               <Book
                 key={book._id}
