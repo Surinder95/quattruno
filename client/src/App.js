@@ -13,6 +13,13 @@ import Books from "./Pages/Books";
 import Notes from "./Pages/Notes";
 import RideSharing from "./Pages/RideSharing";
 
+import $ from "jquery";
+window.jQuery = $;
+window.$ = $;
+global.jQuery = $;
+const bootstrap = require("bootstrap");
+console.log(bootstrap);
+
 class App extends Component {
   render() {
     return (
