@@ -14,7 +14,6 @@ class Books extends Component {
     };
     this.updateBooks = this.updateBooks.bind(this);
   }
-
   componentDidMount() {
     fetch("/books")
       .then(res => res.json())
