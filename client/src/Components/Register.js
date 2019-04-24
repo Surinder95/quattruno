@@ -28,29 +28,13 @@ class Register extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    console.log(user);
 
-    // register(user).then(res => {
-    //   this.props.history.push(`/login`)
-    // })
-
-    fetch("http://localhost:5000/users/register", {
-      method: "POST",
-      body: JSON.stringify(user)
-    })
-      .then((res) => {
-       
-      }).then((json) => {
-        console.log(json);
-      })
-   
-
-    // var valid = this.state.email;
-    // if (valid.substring(valid.length - 11) == "my.csun.edu")
-    //   register(user).then(res => {
-    //     this.props.history.push(`/login`);
-    //   });
-    // else alert("Invalid");
+    var valid = this.state.email;
+    if (valid.substring(valid.length - 11) == "my.csun.edu")
+      register(user).then(res => {
+        this.props.history.push(`/login`);
+      });
+    else alert("Invalid");
   }
 
   render() {
@@ -59,7 +43,7 @@ class Register extends Component {
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Register</h1>
+              <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
               <div className="form-group">
                 <label htmlFor="first_name">First Name</label>
                 <input
