@@ -46,3 +46,4 @@ class UserBooksModal extends Component {
     );
   }
 }
+export default UserBooksModal;
