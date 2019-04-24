@@ -127,7 +127,7 @@ class UploadModal extends Component {
                     </div>
                   </div>
                   <br />
-                  <button className="btn btn-primary" type="submit" data-dismiss="modal">
+                  <button className="btn btn-primary" type="submit">
                     Upload
                   </button>
                 </form>
