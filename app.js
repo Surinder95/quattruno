@@ -13,10 +13,12 @@ var express     = require("express"),
     seedDB      = require("./seeds")
     const cors = require("cors")
 
+
 //requiring routes
 var commentRoutes    = require("./routes/comments"),
     bookRoutes = require("./routes/books"),
-    indexRoutes      = require("./routes/index")
+    indexRoutes      = require("./routes/index"),
+    Users = require('./routes/Users')
 
 
 //DB CONFIG
@@ -58,6 +60,7 @@ app.use(function(req, res, next){
  //ROUTE 
  app.use("/", indexRoutes);
  app.use("/books", bookRoutes);
+ app.use('/users', Users)
  app.use("/books/:id/comments", commentRoutes);
  
 
