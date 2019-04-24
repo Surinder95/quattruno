@@ -12,6 +12,7 @@ var express     = require("express"),
     User        = require("./models/user"),
     seedDB      = require("./seeds")
     const cors = require("cors")
+    const bcrypt = require("bcrypt")
 
 //requiring routes
 var commentRoutes    = require("./routes/comments"),
@@ -69,13 +70,26 @@ app.post("/register", function(req, res){
   
      
      console.log(userData);
-     User.create(userData,function(err){
-         if(err){
-             console.log(err)
-         }else{
-             console.log("Good");
-         }
-     })
+    //  User.create(userData,function(err){
+    //      if(err){
+    //          console.log(err)
+    //      }else{
+    //          console.log("Good");
+    //      }
+    //  })
+
+
+    bcrypt.hash(req.body.password, 10, (err, hash) => {
+        userData.password = hash
+        User.create(userData)
+            .then(user => {
+                res.json({ status: user.email + ' registered!' })
+            })
+            .catch(err => {
+                res.send('error: ' + err)
+            })
+    })
+
     //  User.create(userData)
     //     .then(user => {
     //         res.json({ status: user.email + ' registered!' })
@@ -89,7 +103,7 @@ app.post("/register", function(req, res){
     //          return res.send("error");
     //      }
     //      passport.authenticate("local")(req, res, function(){
-    //         req.flash("success", "Welcome to YelpCamp " + user.username);
+    //         req.flash("success", "Weclome to CSUN HUB " + user.username);
     //         res.redirect("/books"); 
     //      });
     //  });
@@ -117,14 +131,12 @@ app.post("/books", function(req, res){
         price: req.body.price,
         description: req.body.description
       }
-   
-      
       console.log(bookData);
-      Book.create(bookData,function(err){
+      Book.create(bookData,function(err, books){
           if(err){
               console.log(err)
           }else{
-              console.log("Good");
+              console.log("uploaded")
               
           }
       })
