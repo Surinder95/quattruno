@@ -20,17 +20,21 @@ router.get("/", function(req, res){
 });
 
 //CREATE - add new book to DB
-router.post("/", middleware.isLoggedIn, function(req, res){
+// router.post("/", middleware.isLoggedIn, function(req, res){
+router.post("/",function(req, res){
     // get data from form and add to books array
-    var name = req.body.name;
+    let title = req.body.title;
     var image = req.body.image;
     var price = req.body.price;
     var desc = req.body.description;
-    var author = {
-        id: req.user._id,
-        username: req.user.username
-    }
-    var newBook = {name: name, image: image, price: price, description: desc, author:author}
+    console.log(title);
+    // var author = {
+    //     id: req.user._id,
+    //     username: req.user.username
+    // }
+ 
+    // var newBook = {name: name, image: image, price: price, description: desc, author:author}
+    var newBook = {title: title, image: image, price: price, description: desc}
     // Create a new campground and save to DB
     Book.create(newBook, function(err, newlyCreated){
         if(err){

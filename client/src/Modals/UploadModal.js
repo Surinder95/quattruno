@@ -1,18 +1,44 @@
 import React, { Component } from "react";
+import { post } from 'axios';
+import { upload } from '../Components/UserFunctions'
 
 class UploadModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      file: null
+      image: '',
+      title: '',
+      price: '',
+      description: '',
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({
-      file: URL.createObjectURL(e.target.files[0])
-    });
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const book = {
+      image: this.state.image,
+      title: this.state.title,
+      price: this.state.price,
+      description: this.state.description
+    }
+    console.log(book)
+
+    upload(book, function(err){
+      if(err){
+        console.log(err)
+      }else{
+        console.log("uploaded");
+      }
+    })
+  
   }
 
   /** 
@@ -41,33 +67,45 @@ class UploadModal extends Component {
                 </button>
               </div>
               <div className="modal-body">
-                <form>
+                <form onSubmit={this.onSubmit}>
                   <div className="row">
                     <div className="col">
                       <input
                         type="text"
                         id="title"
+                        name="title"
                         className="form-control"
                         placeholder="Title"
+                        value={this.state.title}
+                        onChange={this.onChange}
                       />
                       <br />
                       <input
                         type="text"
                         id="price"
+                        name="price"
                         className="form-control"
                         placeholder="Price"
+                        value={this.state.price}
+                        onChange={this.onChange}
                       />
                       <br />
                       <input
                         type="text"
                         id="course"
+                        name="course"
                         className="form-control"
                         placeholder="Course"
+                        value={this.state.course}
+                        onChange={this.onChange}
                       />
                       <br />
                       <input
                         type="text"
                         id="description"
+                        name="description"
+                        value={this.state.description}
+                        onChange={this.onChange}
                         className="form-control"
                         placeholder="Description"
                       />
@@ -75,7 +113,9 @@ class UploadModal extends Component {
                       <input
                         className="btn"
                         type="file"
-                        onChange={this.handleChange}
+                        onChange={this.onChange}
+                        file={this.state.file}
+                        value={this.state.fileName}
                       />
                       <br />
                       <img
