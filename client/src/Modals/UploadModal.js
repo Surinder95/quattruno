@@ -122,12 +122,12 @@ class UploadModal extends Component {
                         style={{ width: 320, height: 320 }}
                         src={this.state.file}
                         resizemode="contain"
-                        alt="book"
+                        //alt="book"
                       />
                     </div>
                   </div>
                   <br />
-                  <button className="btn btn-primary" type="submit">
+                  <button className="btn btn-primary" type="submit" data-dismiss="modal">
                     Upload
                   </button>
                 </form>
