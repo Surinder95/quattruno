@@ -83,6 +83,7 @@ class Books extends Component {
   render() {
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div>
         <UploadModal />
         <div
@@ -204,6 +205,9 @@ export default Books;
 
 =======
 
+=======
+
+>>>>>>> parent of 48c74fcc... temp
       <div>
             <h2>Books</h2>
             <ul>
@@ -212,6 +216,9 @@ export default Books;
                 )}
         </ul>
         </div>
+<<<<<<< HEAD
+>>>>>>> parent of 48c74fcc... temp
+=======
 >>>>>>> parent of 48c74fcc... temp
 
 
