@@ -4,21 +4,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 import Navbar from "./Components/Navbar";
-import Login from "./Components/Login";
-import Register from "./Components/Register";
-import Profile from "./Components/Profile";
+//import Login from "./Components/Login";
+//import Register from "./Components/Register";
+//import Profile from "./Components/Profile";
 
 import Home from "./Pages/Home";
 import Books from "./Pages/Books";
 import Notes from "./Pages/Notes";
 import RideSharing from "./Pages/RideSharing";
-
-import $ from "jquery";
-window.jQuery = $;
-window.$ = $;
-global.jQuery = $;
-const bootstrap = require("bootstrap");
-console.log(bootstrap);
 
 class App extends Component {
   render() {
@@ -34,9 +27,9 @@ class App extends Component {
           <Route path="/Notes" component={Notes} />
           <Route path="/RideSharing" component={RideSharing} />
           <div className="container">
-            <Route exact path="/register" component={Register} />
+            {/* <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile" component={Profile} /> */}
           </div>
         </div>
       </Router>
