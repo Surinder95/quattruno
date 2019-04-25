@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import { post } from 'axios';
-import { upload } from '../Components/UserFunctions'
+import { post } from "axios";
+import { upload } from "../Components/UserFunctions";
 
 class UploadModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: '',
-      title: '',
-      price: '',
-      description: '',
+      image: "",
+      title: "",
+      course: "",
+      price: "",
+      description: ""
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -26,19 +26,19 @@ class UploadModal extends Component {
     const book = {
       image: this.state.image,
       title: this.state.title,
+      course: this.state.course,
       price: this.state.price,
       description: this.state.description
-    }
-    console.log(book)
+    };
+    console.log(book);
 
-    upload(book, function(err){
-      if(err){
-        console.log(err)
-      }else{
+    upload(book, function(err) {
+      if (err) {
+        console.log(err);
+      } else {
         console.log("uploaded");
       }
-    })
-  
+    });
   }
 
   /** 
