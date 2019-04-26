@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import Note from "../Components/Note.js";
 import Card from "../Components/Card.js";
+import NoteUploadModal from "../Modals/NoteUploadModal";
 
 class Notes extends Component {
   constructor(props) {
@@ -21,78 +22,7 @@ class Notes extends Component {
   render() {
     return (
       <div>
-        <div className="modal" id="uploadModal" data-backdrop="false">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h3 className="text-center text-primary centerMe">
-                  Upload Notes
-                </h3>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <form>
-                  <div className="row">
-                    <div className="col">
-                      <input
-                        type="text"
-                        id="course"
-                        className="form-control"
-                        placeholder="Course"
-                      />
-                      <br />
-                      <input
-                        type="text"
-                        id="teacher"
-                        className="form-control"
-                        placeholder="Professor"
-                      />
-                      <br />
-                      <input
-                        type="text"
-                        id="comments"
-                        className="form-control"
-                        placeholder="Comments"
-                      />
-                      <br />
-                      <input
-                        type="text"
-                        id="date"
-                        className="form-control"
-                        placeholder="Date"
-                      />
-                      <br />
-                      <input
-                        className="btn"
-                        type="file"
-                        onChange={this.handleChange}
-                      />
-                      <br />
-                      <img
-                        style={{ width: 320, height: 320 }}
-                        src={this.state.file}
-                        resizemode="contain"
-                        alt="note"
-                      />
-                    </div>
-                  </div>
-                  <br />
-                  <button className="btn btn-primary" type="submit">
-                    Upload
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div id="modal-backdrop" className="modal-backdrop-transparent" />
-        </div>
+        <NoteUploadModal />
         <div className="container-fluid" id="container-scroll">
           <div className="col-lg-12">
             <Card
@@ -105,8 +35,7 @@ class Notes extends Component {
                   data-target="#uploadModal"
                   data-toggle="modal"
                 >
-                  {" "}
-                  Upload{" "}
+                  Upload
                 </button>
               }
               body={
@@ -140,8 +69,7 @@ class Notes extends Component {
               footer={
                 <div>
                   <button style={{ margin: 20 }} className="btn btn-primary">
-                    {" "}
-                    Load More{" "}
+                    Load More
                   </button>
                 </div>
               }

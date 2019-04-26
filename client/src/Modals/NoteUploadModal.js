@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { post } from "axios";
 import { upload } from "../Components/UserFunctions";
 
-class BookUploadModal extends Component {
+class NoteUploadModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
       image: "",
-      title: "",
       course: "",
-      price: "",
+      professor: "",
       description: "",
+      date: "",
       file: null
     };
     this.onChange = this.onChange.bind(this);
@@ -24,16 +24,15 @@ class BookUploadModal extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const book = {
+    const note = {
       image: this.state.image,
-      title: this.state.title,
       course: this.state.course,
-      price: this.state.price,
+      professor: this.state.professor,
       description: this.state.description
     };
-    console.log(book);
+    console.log(note);
 
-    upload(book, function(err) {
+    upload(note, function(err) {
       if (err) {
         console.log(err);
       } else {
@@ -56,7 +55,7 @@ class BookUploadModal extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h3 className="text-center text-primary centerMe">
-                  Upload Book
+                  Upload Notes
                 </h3>
                 <button
                   type="button"
@@ -73,28 +72,7 @@ class BookUploadModal extends Component {
                     <div className="col">
                       <input
                         type="text"
-                        id="title"
-                        name="title"
-                        className="form-control"
-                        placeholder="Title"
-                        value={this.state.title}
-                        onChange={this.onChange}
-                      />
-                      <br />
-                      <input
-                        type="text"
-                        id="price"
-                        name="price"
-                        className="form-control"
-                        placeholder="Price"
-                        value={this.state.price}
-                        onChange={this.onChange}
-                      />
-                      <br />
-                      <input
-                        type="text"
                         id="course"
-                        name="course"
                         className="form-control"
                         placeholder="Course"
                         value={this.state.course}
@@ -103,12 +81,29 @@ class BookUploadModal extends Component {
                       <br />
                       <input
                         type="text"
-                        id="description"
-                        name="description"
+                        id="teacher"
+                        className="form-control"
+                        placeholder="Professor"
+                        value={this.state.professor}
+                        onChange={this.onChange}
+                      />
+                      <br />
+                      <input
+                        type="text"
+                        id="comments"
+                        className="form-control"
+                        placeholder="Comments"
                         value={this.state.description}
                         onChange={this.onChange}
+                      />
+                      <br />
+                      <input
+                        type="text"
+                        id="date"
                         className="form-control"
-                        placeholder="Description"
+                        placeholder="Date"
+                        value={this.state.date}
+                        onChange={this.onChange}
                       />
                       <br />
                       <input
@@ -123,7 +118,7 @@ class BookUploadModal extends Component {
                         style={{ width: 320, height: 320 }}
                         src={this.state.file}
                         resizemode="contain"
-                        //alt="book"
+                        //alt="note"
                       />
                     </div>
                   </div>
@@ -141,4 +136,4 @@ class BookUploadModal extends Component {
     );
   }
 }
-export default BookUploadModal;
+export default NoteUploadModal;
