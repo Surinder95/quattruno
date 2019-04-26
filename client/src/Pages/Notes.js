@@ -8,14 +8,54 @@ class Notes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      file: null
+      notes: [],
+      page: 1,
+      error: false
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.updateNotes = this.updateNotes.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({
-      file: URL.createObjectURL(e.target.files[0])
+  componentDidMount() {
+    fetch("/notes")
+      .then(res => res.json())
+      .then(notes => this.setState({ notes }, () => console.log(notes)))
+      .catch(error => {
+        console.error(error);
+        this.setState({
+          error: true
+        });
+      });
+  }
+
+  renderNotes = () => {
+    const { notes, page } = this.state;
+    var table = [];
+    var notesPerRow = 4;
+
+    for (var i = 0; i < page; i++) {
+      table.push(
+        <div className="card-deck" key={i} style={{ paddingBottom: "10px" }}>
+          {notes
+            .slice(i * notesPerRow, notesPerRow + i * notesPerRow)
+            .map(note => (
+              <Note
+                key={note._id}
+                professor={note.professor}
+                title={note.title}
+                image={note.image}
+                course={notes.course}
+                description={note.description}
+              />
+            ))}
+        </div>
+      );
+    }
+    return table;
+  };
+
+  updateNotes() {
+    this.setState(prev => {
+      return { page: prev.page + 1 };
     });
   }
 
@@ -38,34 +78,7 @@ class Notes extends Component {
                   Upload
                 </button>
               }
-              body={
-                <div className="card-deck">
-                  <Note
-                    course="COMP 222"
-                    teacher="Lazik"
-                    comments="Section 5.2"
-                    dateAdded="11-17-18"
-                  />
-                  <Note
-                    course="COMP 490"
-                    teacher="Dousette"
-                    comments="went over test questions"
-                    dateAdded="12-4-18"
-                  />
-                  <Note
-                    course="COMP 322"
-                    teacher="Isayan"
-                    comments="number 5 from the hw is on the test"
-                    dateAdded="12-3-18"
-                  />
-                  <Note
-                    course="COMP 482"
-                    teacher="Noga"
-                    comments="will post slides on Canvas"
-                    dateAdded="12-5-18"
-                  />
-                </div>
-              }
+              body={this.renderNotes()}
               footer={
                 <div>
                   <button style={{ margin: 20 }} className="btn btn-primary">
