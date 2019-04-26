@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import Card from "../Components/Card.js";
 import Book from "../Components/Book.js";
-import UploadModal from "../Modals/UploadModal.js";
+import BookUploadModal from "../Modals/BookUploadModal.js";
 
 class Books extends Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class Books extends Component {
   render() {
     return (
       <div>
-        <UploadModal />
+        <BookUploadModal />
         <div
           className="container-fluid"
           id="container-scroll"

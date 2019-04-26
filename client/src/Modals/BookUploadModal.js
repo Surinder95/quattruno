@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { post } from "axios";
 import { upload } from "../Components/UserFunctions";
 
-class UploadModal extends Component {
+class BookUploadModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -140,4 +140,4 @@ class UploadModal extends Component {
     );
   }
 }
-export default UploadModal;
+export default BookUploadModal;
