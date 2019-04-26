@@ -29,7 +29,7 @@ export const upload = newBook =>{
 
 export const login = user => {
     return axios
-        .post('users/login', {
+        .post('login', {
             email: user.email,
             password: user.password
         })

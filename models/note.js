@@ -4,11 +4,13 @@ var noteSchema = mongoose.Schema({
     className: String,
     classNumber: String,
     description: String,
+    image: String,
     created: {
         type: Date, 
         default: Date.now
         
     }
+
 
 });
 
