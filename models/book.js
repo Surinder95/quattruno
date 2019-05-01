@@ -1,24 +1,24 @@
 var mongoose = require("mongoose");
 
 var bookSchema = new mongoose.Schema({
-   title: String,
-   image: String,
-   price: Number,
-   description: String,
-   author: {
-      id: {
-         type: mongoose.Schema.Types.ObjectId,
-         ref: "User"
-      },
-      username: String
+  title: String,
+  course: String,
+  image: String,
+  price: Number,
+  description: String,
+  author: {
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
+    username: String
+  },
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment"
     }
-   ,
-   comments: [
-      {
-         type: mongoose.Schema.Types.ObjectId,
-         ref: "Comment"
-      }
-   ]
+  ]
 });
 
 module.exports = mongoose.model("Book", bookSchema);

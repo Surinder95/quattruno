@@ -5,89 +5,25 @@ var Comment = require("./models/comment");
 var data = [
   {
     title: "First",
+    course: "Comp 121",
     image: "https://farm4.staticflickr.com/3795/10131087094_c1c0a1c859.jpg",
     price: 100,
     description: "dsflknflkfsnllkn"
   },
   {
     title: "Second",
+    course: "Comp 121",
     image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
     price: 100,
     description: "Second book"
   },
   {
     title: "Third",
+    course: "Comp 121",
     image: "https://farm1.staticflickr.com/189/493046463_841a18169e.jpg",
     price: 100,
     description:
       "fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-  },
-  {
-    title: "Fourth",
-    image: "https://farm4.staticflickr.com/3795/10131087094_c1c0a1c859.jpg",
-    price: 100,
-    description: "dsfl123knflkfsnllkn"
-  },
-  {
-    title: "Fifth",
-    image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
-    price: 100,
-    description: "dsflknf123lkfsnllkn"
-  },
-  {
-    title: "Sixth",
-    image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
-    price: 100,
-    description: "dsflknf123lkfsnllkn"
-  },
-  {
-    title: "Seventh",
-    image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
-    price: 100,
-    description: "dsflknf123lkfsnllkn"
-  },
-  {
-    title: "8",
-    image: "https://farm4.staticflickr.com/3795/10131087094_c1c0a1c859.jpg",
-    price: 100,
-    description: "dsflknflkfsnllkn"
-  },
-  {
-    title: "9",
-    image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
-    price: 100,
-    description: "Second book"
-  },
-  {
-    title: "10",
-    image: "https://farm1.staticflickr.com/189/493046463_841a18169e.jpg",
-    price: 100,
-    description:
-      "Thrid bookd do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi"
-  },
-  {
-    title: "11",
-    image: "https://farm4.staticflickr.com/3795/10131087094_c1c0a1c859.jpg",
-    price: 100,
-    description: "dsfl123knflkfsnllkn"
-  },
-  {
-    title: "12",
-    image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
-    price: 100,
-    description: "dsflknf123lkfsnllkn"
-  },
-  {
-    title: "13",
-    image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
-    price: 100,
-    description: "dsflknf123lkfsnllkn"
-  },
-  {
-    title: "14",
-    image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
-    price: 100,
-    description: "dsflknf123lkfsnllkn"
   }
 ];
 
