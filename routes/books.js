@@ -1,7 +1,7 @@
-var express = require("express");
-var router = express.Router();
-var Book = require("../models/book");
-var middleware = require("../middleware");
+var express =       require("express");
+var router =        express.Router();
+var Book =          require("../models/book");
+var middleware =    require("../middleware");
 
 
 //INDEX - show all campgrounds
@@ -23,11 +23,12 @@ router.get("/", function (req, res) {
 // router.post("/", middleware.isLoggedIn, function(req, res){
 router.post("/", function (req, res) {
     // get data from form and add to books array
-    let title = req.body.title;
-    var image = req.body.image;
-    var price = req.body.price;
-    var desc = req.body.description;
-    var course = req.body.course;
+    let title =     req.body.title;
+    var image =     req.body.image;
+    var price =     req.body.price;
+    var desc =      req.body.description;
+    var course =    req.body.course;
+    var created =   req.body.created;
     console.log(title);
     // var author = {
     //     id: req.user._id,
@@ -35,7 +36,13 @@ router.post("/", function (req, res) {
     // }
 
     // var newBook = {name: name, image: image, price: price, description: desc, author:author}
-    var newBook = { title: title, image: image, price: price, description: desc, course: course }
+    var newBook = { 
+        title: title, 
+        image: image, 
+        price: price, 
+        description: desc, 
+        course: course, 
+        created: created }
     // Create a new campground and save to DB
     Book.create(newBook, function (err, newlyCreated) {
         if (err) {
