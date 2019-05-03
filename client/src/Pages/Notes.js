@@ -41,11 +41,11 @@ class Notes extends Component {
               <Note
                 key={note._id}
                 title={note.title}
-                course={notes.course}
+                course={note.course}
                 image={note.image}
                 teacher={note.teacher}
                 description={note.description}
-                created={note.createed}
+                created={note.created}
               />
             ))}
         </div>

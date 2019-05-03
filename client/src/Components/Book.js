@@ -10,8 +10,11 @@ class Book extends Component {
     description: this.props.description,
     height: this.props.height,
     contactInfo: this.props.contactInfo,
-    created: this.props.created,
+    created: this.props.created
   };
+
+  date = new Date(this.props.created);
+ 
 
   render() {
     return (
@@ -38,7 +41,7 @@ class Book extends Component {
 
         <div className="card-footer">
           <small className="text-muted">
-            Last updated {this.props.created}
+            Last updated {this.date.toDateString()}
           </small>
         </div>
 

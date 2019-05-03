@@ -22,6 +22,8 @@ class Note extends Component {
     });
   }
 
+  date = new Date(this.props.created);
+
   render() {
     return (
       <div className="card">
@@ -52,7 +54,7 @@ class Note extends Component {
         </div>
         <div className="card-footer">
           <small className="text-muted">
-            Last updated {this.props.created}
+            Uploaded {this.date.toDateString()}
           </small>
         </div>
       </div>

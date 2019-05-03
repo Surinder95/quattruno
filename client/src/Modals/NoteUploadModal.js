@@ -72,6 +72,7 @@ class NoteUploadModal extends Component {
                       <input
                         type="text"
                         id="course"
+                        name="course"
                         className="form-control"
                         placeholder="Course"
                         value={this.state.course}
@@ -81,6 +82,7 @@ class NoteUploadModal extends Component {
                       <input
                         type="text"
                         id="teacher"
+                        name="teacher"
                         className="form-control"
                         placeholder="Professor"
                         value={this.state.teacher}
@@ -89,9 +91,10 @@ class NoteUploadModal extends Component {
                       <br />
                       <input
                         type="text"
-                        id="comments"
+                        id="description"
+                        name="description"
                         className="form-control"
-                        placeholder="Comments"
+                        placeholder="Comments/Description"
                         value={this.state.description}
                         onChange={this.onChange}
                       />
@@ -99,9 +102,10 @@ class NoteUploadModal extends Component {
                       <input
                         type="text"
                         id="date"
+                        name="date"
                         className="form-control"
                         placeholder="Date"
-                        value={this.state.created}
+                        value={this.state.date}
                         onChange={this.onChange}
                       />
                       <br />

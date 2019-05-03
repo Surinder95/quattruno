@@ -41,12 +41,10 @@ class BookUploadModal extends Component {
       }
     });
   }
-
   /** 
   appendToUserBookListings() {
     var bookListings = [];
-  }
-  */
+  }  */
 
   render() {
     return (
