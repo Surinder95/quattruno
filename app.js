@@ -50,6 +50,8 @@ app.use(require("express-session")({
 // passport.serializeUser(User.serializeUser());
 // passport.deserializeUser(User.deserializeUser());
 
+process.env.SECRET_KEY = 'secret'
+
 
 app.use(function (req, res, next) {
     res.locals.currentUser = req.user;
@@ -62,36 +64,39 @@ app.use(function (req, res, next) {
 //ROUTE 
 //  app.use("/", indexRoutes);
 app.post("/register", function (req, res) {
+    const today = new Date()
     //  var newUser = new User({username: req.body.email});
     const userData = {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        date: today
     }
-
-
     console.log(userData);
-    //  User.create(userData,function(err){
-    //      if(err){
-    //          console.log(err)
-    //      }else{
-    //          console.log("Good");
-    //      }
-    //  })
-
-
-    bcrypt.hash(req.body.password, 10, (err, hash) => {
-        userData.password = hash
-        User.create(userData)
-            .then(user => {
-                res.json({ status: user.email + ' registered!' })
-            })
-            .catch(err => {
-                res.send('error: ' + err)
-            })
+    User.findOne({
+        email: req.body.email
     })
-
+        .then(user => {
+            if (!user) {
+                bcrypt.hash(req.body.password, 10, (err, hash) => {
+                    userData.password = hash
+                    User.create(userData)
+                        .then(user => {
+                            console.log({ status: user.email + ' registered!' })
+                            res.render(Login);
+                        })
+                        .catch(err => {
+                            console.log('error: ' + err)
+                        })
+                })
+            } else {
+                console.log({ error: 'User already exists' })
+            }
+        })
+        .catch(err => {
+            console.log('error: ' + err)
+        })
     //  User.create(userData)
     //     .then(user => {
     //         res.json({ status: user.email + ' registered!' })
@@ -111,6 +116,34 @@ app.post("/register", function (req, res) {
     //  });
 });
 
+app.post('/login', (req, res) => {
+    User.findOne({
+        email: req.body.email
+    })
+        .then(user => {
+            if (user) {
+                if (bcrypt.compareSync(req.body.password, user.password)) {
+                    const payload = {
+                        _id: user._id,
+                        first_name: user.first_name,
+                        last_name: user.last_name,
+                        email: user.email
+                    }
+                    let token = jwt.sign(payload, process.env.SECRET_KEY, {
+                        expiresIn: 1440
+                    })
+                    res.send(token)
+                } else {
+                    res.json({ error: "User does not exist" })
+                }
+            } else {
+                res.json({ error: "User does not exist" })
+            }
+        })
+        .catch(err => {
+            res.send('error: ' + err)
+        })
+})
 app.get("/books", function (req, res) {
     // Get all campgrounds from DB   
     //:::: It should be under book so it might be /books :::::::
@@ -176,8 +209,24 @@ app.post("/notes", function (req, res) {
     })
 })
 
-//  app.use("/books", bookRoutes);
-app.use("/books/:id/comments", commentRoutes);
+// app.get('/profile', (req, res) => {
+//     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+
+//     User.findOne({
+//         _id: decoded._id
+//     })
+//         .then(user => {
+//             if (user) {
+//                 res.json(user)
+//             } else {
+//                 res.send("User does not exist")
+//             }
+//         })
+//         .catch(err => {
+//             res.send('error: ' + err)
+//         })
+// })
+
 
 
 const port = process.env.PORT || 5000;

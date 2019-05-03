@@ -51,6 +51,9 @@ export const uploadNote = newNote => {
             title: newNote.title,
             teacher: newNote.teacher,
             description: newNote.description
+            // .post('login', {
+            //     email: user.email,
+            //     password: user.password
         })
         .then(res => {
             console.log('Uploaded')

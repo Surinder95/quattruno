@@ -7,6 +7,7 @@ var noteSchema = new mongoose.Schema({
     teacher: String,
     //classNumber: String,
     description: String,
+    image: String,
     created: {
         type: Date,
         default: Date.now
@@ -20,6 +21,7 @@ var noteSchema = new mongoose.Schema({
         },
         username: String
     },
+
 
 });
 
