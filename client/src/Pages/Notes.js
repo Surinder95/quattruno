@@ -82,7 +82,7 @@ class Notes extends Component {
               body={this.renderNotes()}
               footer={
                 <div>
-                  <button style={{ margin: 20 }} className="btn btn-primary">
+                  <button style={{ margin: 20 }} className="btn btn-primary" onClick={() => this.updateNotes()}>
                     Load More
                   </button>
                 </div>

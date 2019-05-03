@@ -31,8 +31,8 @@ class Book extends Component {
           <p className="card-text">{this.props.description}</p>
           <button className="btn btn-outline-primary">
 
-            {/* <a className="removeBlueText" href="mailto:{user.email}?Subject=Still%20Available">Message</a> 
-              I THINK THIS IS HOW WE GET IT TO RUN DYNAMICALLY ^ by putting user.email in brackets but idk if that'll work within the double quotes
+            {/* <a className="removeBlueText" href={"mailto:" + user.email + "?Subject=Still%20Available"}>Message</a> 
+              how do we get the user's email?
             */}
 
             <a className="removeBlueText" href="mailto:someone@example.com?Subject=Hello%20again">Message</a>
@@ -41,7 +41,7 @@ class Book extends Component {
 
         <div className="card-footer">
           <small className="text-muted">
-            Last updated {this.date.toDateString()}
+            Uploaded {this.date.toDateString()}
           </small>
         </div>
 
