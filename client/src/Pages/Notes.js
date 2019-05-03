@@ -40,11 +40,12 @@ class Notes extends Component {
             .map(note => (
               <Note
                 key={note._id}
-                professor={note.professor}
                 title={note.title}
-                image={note.image}
                 course={notes.course}
+                image={note.image}
+                teacher={note.teacher}
                 description={note.description}
+                created={note.createed}
               />
             ))}
         </div>

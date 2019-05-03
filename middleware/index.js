@@ -1,4 +1,5 @@
 var Book = require("../models/book");
+var Note = require("../models/note");
 var Comment = require("../models/comment");
 
 // all the middleare goes here
@@ -15,6 +16,30 @@ middlewareObj.checkBookOwnership = function (req, res, next) {
             } else {
                 // does user own the campground?
                 if (foundBook.author.id.equals(req.user._id)) {
+                    next();
+                } else {
+                    req.flash("error", "You don't have permission to do that");
+                    res.redirect("back");
+                }
+            }
+        });
+    } else {
+        req.flash("error", "You need to be logged in to do that");
+        res.redirect("back");
+    }
+}
+
+//Checks if user is logged in, then checks if user is owner of note
+//if all true does next() command 
+middlewareObj.checkNoteOwnership = function (req, res, next) {
+    if (req.isAuthenticated()) {
+        Note.findById(req.params.id, function (err, foundNote) {
+            if (err) {
+                req.flash("error", "Book not found");
+                res.redirect("back");
+            } else {
+                // does user own the campground?
+                if (foundNote.author.id.equals(req.user._id)) {
                     next();
                 } else {
                     req.flash("error", "You don't have permission to do that");

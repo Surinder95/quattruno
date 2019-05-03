@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { post } from "axios";
-import { upload } from "../Components/UserFunctions";
+import { uploadNote } from "../Components/UserFunctions";
 
 class NoteUploadModal extends Component {
   constructor(props) {
@@ -8,9 +8,8 @@ class NoteUploadModal extends Component {
     this.state = {
       image: "",
       course: "",
-      professor: "",
+      teacher: "",
       description: "",
-      date: "",
       file: null
     };
     this.onChange = this.onChange.bind(this);
@@ -27,12 +26,12 @@ class NoteUploadModal extends Component {
     const note = {
       image: this.state.image,
       course: this.state.course,
-      professor: this.state.professor,
+      teacher: this.state.teacher,
       description: this.state.description
     };
     console.log(note);
 
-    upload(note, function(err) {
+    uploadNote(note, function (err) {
       if (err) {
         console.log(err);
       } else {
@@ -84,7 +83,7 @@ class NoteUploadModal extends Component {
                         id="teacher"
                         className="form-control"
                         placeholder="Professor"
-                        value={this.state.professor}
+                        value={this.state.teacher}
                         onChange={this.onChange}
                       />
                       <br />
@@ -102,7 +101,7 @@ class NoteUploadModal extends Component {
                         id="date"
                         className="form-control"
                         placeholder="Date"
-                        value={this.state.date}
+                        value={this.state.created}
                         onChange={this.onChange}
                       />
                       <br />
@@ -118,7 +117,7 @@ class NoteUploadModal extends Component {
                         style={{ width: 320, height: 320 }}
                         src={this.state.file}
                         resizemode="contain"
-                        //alt="note"
+                      //alt="note"
                       />
                     </div>
                   </div>

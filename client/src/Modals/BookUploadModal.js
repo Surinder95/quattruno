@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { post } from "axios";
-import { upload } from "../Components/UserFunctions";
+import { uploadBook } from "../Components/UserFunctions";
 
 class BookUploadModal extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class BookUploadModal extends Component {
     };
     console.log(book);
 
-    upload(book, function(err) {
+    uploadBook(book, function (err) {
       if (err) {
         console.log(err);
       } else {
@@ -123,7 +123,7 @@ class BookUploadModal extends Component {
                         style={{ width: 320, height: 320 }}
                         src={this.state.file}
                         resizemode="contain"
-                        //alt="book"
+                      //alt="book"
                       />
                     </div>
                   </div>

@@ -1,32 +1,34 @@
 //REQUIRE CONFIG
-var express     = require("express"),
-    app         = express(),
-    bodyParser  = require("body-parser"),
-    mongoose    = require("mongoose"),
-    flash       = require("connect-flash"),
-    passport    = require("passport"),
+var express = require("express"),
+    app = express(),
+    bodyParser = require("body-parser"),
+    mongoose = require("mongoose"),
+    flash = require("connect-flash"),
+    passport = require("passport"),
     LocalStrategy = require("passport-local"),
     methodOverride = require("method-override"),
-    Book  = require("./models/book"),
-    Comment     = require("./models/comment"),
-    User        = require("./models/user"),
-    seedDB      = require("./seeds")
-    const cors = require("cors")
-    const bcrypt = require("bcrypt")
+    Book = require("./models/book"),
+    Note = require("./models/note"),
+    Comment = require("./models/comment"),
+    User = require("./models/user"),
+    seedDB = require("./seeds")
+const cors = require("cors")
+const bcrypt = require("bcrypt")
 
 //requiring routes
-var commentRoutes    = require("./routes/comments"),
+var commentRoutes = require("./routes/comments"),
     bookRoutes = require("./routes/books"),
-    indexRoutes      = require("./routes/index")
+    noteRoutes = require("./routes/notes"),
+    indexRoutes = require("./routes/index")
 
 
 //DB CONFIG
 const db = require('./config/key.js').mongoURI;
 //Connect DB
-mongoose.connect(db, {useNewUrlParser: true}).then(() => console.log("connected")).catch(err => console.log(err));
+mongoose.connect(db, { useNewUrlParser: true }).then(() => console.log("connected")).catch(err => console.log(err));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
@@ -49,27 +51,27 @@ app.use(require("express-session")({
 // passport.deserializeUser(User.deserializeUser());
 
 
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();
- });
- 
+});
 
- //ROUTE 
+
+//ROUTE 
 //  app.use("/", indexRoutes);
-app.post("/register", function(req, res){
+app.post("/register", function (req, res) {
     //  var newUser = new User({username: req.body.email});
     const userData = {
-       first_name: req.body.first_name,
-       last_name: req.body.last_name,
-       email: req.body.email,
-       password: req.body.password
-   }
-  
-     
-     console.log(userData);
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password: req.body.password
+    }
+
+
+    console.log(userData);
     //  User.create(userData,function(err){
     //      if(err){
     //          console.log(err)
@@ -107,49 +109,79 @@ app.post("/register", function(req, res){
     //         res.redirect("/books"); 
     //      });
     //  });
- });
+});
 
- app.get("/books", function(req, res){
+app.get("/books", function (req, res) {
     // Get all campgrounds from DB   
     //:::: It should be under book so it might be /books :::::::
-    Book.find({}, function(err, books){
-       if(err){
-           console.log(err);
-       } else {
-          //res.render("books/index",{books:allBooks});
-          //res.send("This is book index page");
-          res.json(books);
-       }
+    Book.find({}, function (err, books) {
+        if (err) {
+            console.log(err);
+        } else {
+            //res.render("books/index",{books:allBooks});
+            //res.send("This is book index page");
+            res.json(books);
+        }
     });
 });
 
-app.post("/books", function(req, res){
-
+app.post("/books", function (req, res) {
     const bookData = {
-        image: req.body.image,
         title: req.body.title,
+        course: req.body.course,
+        image: req.body.image,
         price: req.body.price,
         description: req.body.description
-      }
-      console.log(bookData);
-      Book.create(bookData,function(err, books){
-          if(err){
-              console.log(err)
-          }else{
-              console.log("uploaded")
-              
-          }
-      })
-
-
-
+    }
+    console.log(bookData);
+    Book.create(bookData, function (err, books) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("uploaded")
+        }
+    })
 })
+
+app.get("/notes", function (req, res) {
+    // Get all campgrounds from DB   
+    //:::: It should be under book so it might be /books :::::::
+    Note.find({}, function (err, notes) {
+        if (err) {
+            console.log(err);
+        } else {
+            //res.render("books/index",{books:allBooks});
+            //res.send("This is book index page");
+            res.json(notes);
+        }
+    });
+});
+
+app.post("/notes", function (req, res) {
+    const noteData = {
+        title: req.body.title,
+        course: req.body.course,
+        image: req.body.image,
+        teacher: req.body.teacher,
+        description: req.body.description
+
+    }
+    console.log(noteData);
+    Note.create(noteData, function (err, notes) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("uploaded")
+        }
+    })
+})
+
 //  app.use("/books", bookRoutes);
- app.use("/books/:id/comments", commentRoutes);
- 
+app.use("/books/:id/comments", commentRoutes);
+
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server up and running on port ${port} !`)); 
+app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
 
 //RESTFUL ROUTES

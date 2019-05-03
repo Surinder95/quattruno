@@ -9,8 +9,8 @@ class Note extends Component {
       course: this.props.course,
       teacher: this.props.teacher,
       date: this.props.date,
-      comments: this.props.comments,
-      dateAdded: this.props.dateAdded,
+      description: this.props.description,
+      created: this.props.created,
       file: null
     };
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +30,7 @@ class Note extends Component {
             {this.props.course} : {this.props.teacher}
           </h6>
           <h6 className="card-subtitle mb-2 rightText"> {this.props.date} </h6>
-          <p className="card-text commentFont">{this.props.comments}</p>
+          <p className="card-text commentFont">{this.props.description}</p>
           <br />
 
           <a href="#note" className="lightbox">
@@ -52,7 +52,7 @@ class Note extends Component {
         </div>
         <div className="card-footer">
           <small className="text-muted">
-            Last updated {this.props.dateAdded}{" "}
+            Last updated {this.props.created}
           </small>
         </div>
       </div>

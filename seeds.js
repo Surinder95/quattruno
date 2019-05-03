@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var Book = require("./models/book");
+var Note = require("./models/note");
 var Comment = require("./models/comment");
 
 var data = [
@@ -29,14 +30,14 @@ var data = [
 
 function seedDB() {
   //Remove all campgrounds
-  Book.remove({}, function(err) {
+  Book.remove({}, function (err) {
     if (err) {
       console.log(err);
     }
     console.log("removed books!");
     //add a few campgrounds
-    data.forEach(function(seed) {
-      Book.create(seed, function(err, book) {
+    data.forEach(function (seed) {
+      Book.create(seed, function (err, book) {
         if (err) {
           console.log(err);
         } else {
@@ -47,7 +48,7 @@ function seedDB() {
               text: "This book is great",
               author: "Homer"
             },
-            function(err, comment) {
+            function (err, comment) {
               if (err) {
                 console.log(err);
               } else {
