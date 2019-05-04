@@ -22,6 +22,14 @@ class Note extends Component {
     });
   }
 
+  hasImageCheck = () => {
+    if (this.props.image === "") {
+      console.log("Hello");
+      this.state.image = require("../Images/imagePlaceHolder.jpg");
+    }
+    return this.state.image;
+  }
+
   date = new Date(this.props.created);
 
   render() {
@@ -38,6 +46,7 @@ class Note extends Component {
           <a href="#note" className="lightbox">
             <img
               className="card-img-top"
+              src={this.hasImageCheck()}
               //src={require("../Images/math-notes.JPG")}
               alt="notes"
             />
@@ -46,6 +55,7 @@ class Note extends Component {
           <div className="lightbox-target" id="note">
             <img
               className="center"
+              src={this.hasImageCheck()}
               //src={require("../Images/math-notes.JPG")}
               alt="notes"
             />

@@ -13,14 +13,21 @@ class Book extends Component {
     created: this.props.created
   };
 
+  hasImageCheck = () => {
+    if (this.props.image === "") {
+      console.log("Hello");
+      this.state.image = require("../Images/imagePlaceHolder.jpg");
+    }
+    return this.state.image;
+  }
+
   date = new Date(this.props.created);
- 
 
   render() {
     return (
       <div className="card">
         <div className="imagecont">
-          <img className="card-img-top" src={this.props.image} alt="Textbook" />
+          <img className="card-img-top" src={this.hasImageCheck()} />
         </div>
 
         <label className="price">${this.props.price}</label>
