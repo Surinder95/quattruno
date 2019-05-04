@@ -1,21 +1,27 @@
 import React, { Component } from "react";
-import { post } from "axios";
+import ReactDOM from "react-dom";
+import Axios, { post } from "axios";
 import { uploadBook } from "../Components/UserFunctions";
+
+const CLOUDINARY_UPLOAD_PRESET = 'omdurhcc';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/csun-hub/image/upload';
+
 
 class BookUploadModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: "",
+      image: require("../Images/imagePlaceHolder.jpg"),
       title: "",
       course: "",
       price: "",
-      description: "",
-      file: null
+      description: ""
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    //this.onChangeImage = this.onChangeImage.bind(this);
   }
+
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -39,12 +45,31 @@ class BookUploadModal extends Component {
       } else {
         console.log("uploaded");
       }
+
     });
+
   }
-  /** 
-  appendToUserBookListings() {
-    var bookListings = [];
-  }  */
+
+  processFile = async e => {
+    var file = e.target.files[0];
+    var formData = new FormData();
+
+    formData.append("file", file);
+    formData.append("cloud_name", "csun-hub");
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+    let res = await fetch(CLOUDINARY_UPLOAD_URL,
+      {
+        method: "post",
+        mode: "cors",
+        body: formData
+      });
+
+    let json = await res.json();
+    this.setState({ image: json.secure_url });
+    console.log(JSON.stringify(json.secure_url));
+
+  }
 
   render() {
     return (
@@ -112,16 +137,15 @@ class BookUploadModal extends Component {
                       <input
                         className="btn"
                         type="file"
-                        onChange={this.onChange}
-                        file={this.state.file}
-                        value={this.state.fileName}
+                        onChange={this.processFile}
+                      //file={this.state.file}
+                      //value={this.state.fileName}
                       />
                       <br />
                       <img
                         style={{ width: 320, height: 320 }}
-                        src={this.state.file}
+                        src={this.state.image}
                         resizemode="contain"
-                      //alt="book"
                       />
                     </div>
                   </div>
