@@ -14,8 +14,7 @@ class Book extends Component {
   };
 
   hasImageCheck = () => {
-    if (this.props.image === "") {
-      console.log("Hello");
+    if (this.state.image === "") {
       this.state.image = require("../Images/imagePlaceHolder.jpg");
     }
     return this.state.image;
@@ -27,7 +26,8 @@ class Book extends Component {
     return (
       <div className="card">
         <div className="imagecont">
-          <img className="card-img-top" src={this.hasImageCheck()} />
+          <img className="card-img-top"
+            src={this.hasImageCheck()} />
         </div>
 
         <label className="price">${this.props.price}</label>

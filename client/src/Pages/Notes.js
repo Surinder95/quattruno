@@ -37,9 +37,9 @@ class Notes extends Component {
         <div className="card-deck" key={i} style={{ paddingBottom: "10px" }}>
           {notes
             .slice(i * notesPerRow, notesPerRow + i * notesPerRow)
-            .map(note => (
+            .map((note, index) => (index + 1,
               <Note
-                key={note._id}
+                key={index}
                 title={note.title}
                 course={note.course}
                 image={note.image}

@@ -5,6 +5,7 @@ class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      index: this.props.index,
       image: this.props.image,
       course: this.props.course,
       teacher: this.props.teacher,
@@ -23,8 +24,7 @@ class Note extends Component {
   }
 
   hasImageCheck = () => {
-    if (this.props.image === "") {
-      console.log("Hello");
+    if (this.state.image === "") {
       this.state.image = require("../Images/imagePlaceHolder.jpg");
     }
     return this.state.image;
@@ -61,6 +61,7 @@ class Note extends Component {
             />
             <a href="#" className="lightbox-close" />
           </div>
+
         </div>
         <div className="card-footer">
           <small className="text-muted">
