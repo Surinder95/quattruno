@@ -40,6 +40,7 @@ class Notes extends Component {
             .map((note, index) => (index + 1,
               <Note
                 key={index}
+                index={i + "" + index}
                 title={note.title}
                 course={note.course}
                 image={note.image}
