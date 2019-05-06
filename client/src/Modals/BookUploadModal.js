@@ -123,7 +123,7 @@ class BookUploadModal extends Component {
                         style={{ width: 320, height: 320 }}
                         src={this.state.file}
                         resizemode="contain"
-                        //alt="book"
+                        alt="preview"
                       />
                     </div>
                   </div>

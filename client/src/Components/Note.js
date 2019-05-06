@@ -22,6 +22,14 @@ class Note extends Component {
     });
   }
 
+  hasImageCheck = () => {
+    if (this.state.image === "") {
+      this.setState({ image: require("../Images/imagePlaceHolder.jpg")});    }
+    return this.state.image;
+  }
+
+  date = new Date(this.props.created);
+
   render() {
     return (
       <div className="card">
