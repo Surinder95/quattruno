@@ -9,10 +9,44 @@ export const register = newUser => {
             password: newUser.password,
         })
         .then(res => {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            // console.log("did routing")
+            // window.location.href="/login";
+
+        })
+}
+
+
+
+
+=======
             console.log('Registered!')
         })
 }
 
+>>>>>>> parent of 76447cd6... minor update
+=======
+>>>>>>> parent of cf464a44... ignore it
+            console.log('Registered!')
+        })
+}
+
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 76447cd6... minor update
+=======
+            console.log('Registered!')
+        })
+}
+
+>>>>>>> parent of 76447cd6... minor update
+export const upload = newBook =>{
+
+>>>>>>> parent of cf464a44... ignore it
 export const login = user => {
     return axios
         .post('users/login', {
@@ -45,6 +79,26 @@ export const uploadBook = newBook => {
 
 export const uploadNote = newNote => {
     return axios
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        .post('/login', {
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
+            email: user.email,
+            password: user.password
+
+>>>>>>> parent of cf464a44... ignore it
         .post('/notes', {
             image: newNote.image,
             course: newNote.course,

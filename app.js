@@ -61,12 +61,24 @@ app.use(function (req, res, next) {
 });
 
 
+<<<<<<< HEAD
 //ROUTE 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+//ROUTE
+=======
+=======
+>>>>>>> parent of 76447cd6... minor update
+ //ROUTE 
+>>>>>>> parent of 76447cd6... minor update
+>>>>>>> parent of cf464a44... ignore it
 //  app.use("/", indexRoutes);
 app.post("/register", function (req, res) {
     const today = new Date()
     //  var newUser = new User({username: req.body.email});
     const userData = {
+<<<<<<< HEAD
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
@@ -74,6 +86,52 @@ app.post("/register", function (req, res) {
         date: today
     }
     console.log(userData);
+=======
+       first_name: req.body.first_name,
+       last_name: req.body.last_name,
+       email: req.body.email,
+       password: req.body.password,
+       date: today
+   }
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    //console.log(userData);
+
+    var newUser = new User(
+        {
+            username: req.body.email,
+            first_name: req.body.frist_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            date:today
+        });
+
+
+    // User.register(newUser, req.body.password, function(err, user){
+    //     if(err){
+    //         //return res.redirect("http://localhost:3000/books");
+    //         console.log(err);
+    //     }
+    //     console.log(user);
+    //     passport.authenticate('local')(req, res, function(){
+    //         res.json({redirectURI: "http://localhost:3000/books"})
+    //     });
+    //     console.log('no erro2222r!');
+    // });
+
+
+
+=======
+    console.log(userData);
+>>>>>>> parent of 76447cd6... minor update
+=======
+    console.log(userData);
+>>>>>>> parent of 76447cd6... minor update
+=======
+    console.log(userData);
+>>>>>>> parent of 76447cd6... minor update
+>>>>>>> parent of cf464a44... ignore it
     User.findOne({
         email: req.body.email
     })
@@ -176,6 +234,10 @@ app.post("/books", function (req, res) {
     })
 })
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> parent of cf464a44... ignore it
 app.get("/notes", function (req, res) {
     // Get all campgrounds from DB   
     //:::: It should be under book so it might be /books :::::::
@@ -208,6 +270,28 @@ app.post("/notes", function (req, res) {
         }
     })
 })
+<<<<<<< HEAD
+=======
+=======
+// app.get('/profile', (req, res) => {
+//     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+
+//     User.findOne({
+//         _id: decoded._id
+//     })
+//         .then(user => {
+//             if (user) {
+//                 res.json(user)
+//             } else {
+//                 res.send("User does not exist")
+//             }
+//         })
+//         .catch(err => {
+//             res.send('error: ' + err)
+//         })
+// })
+>>>>>>> parent of 76447cd6... minor update
+>>>>>>> parent of cf464a44... ignore it
 
 // app.get('/profile', (req, res) => {
 //     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
@@ -227,6 +311,11 @@ app.post("/notes", function (req, res) {
 //         })
 // })
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> parent of 76447cd6... minor update
+>>>>>>> parent of cf464a44... ignore it
 
 
 const port = process.env.PORT || 5000;
