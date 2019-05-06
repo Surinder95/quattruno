@@ -5,12 +5,13 @@ class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      index: this.props.index,
       image: this.props.image,
       course: this.props.course,
       teacher: this.props.teacher,
       date: this.props.date,
-      comments: this.props.comments,
-      dateAdded: this.props.dateAdded,
+      description: this.props.description,
+      created: this.props.created,
       file: null
     };
     this.handleChange = this.handleChange.bind(this);
@@ -30,29 +31,32 @@ class Note extends Component {
             {this.props.course} : {this.props.teacher}
           </h6>
           <h6 className="card-subtitle mb-2 rightText"> {this.props.date} </h6>
-          <p className="card-text commentFont">{this.props.comments}</p>
+          <p className="card-text commentFont">{this.props.description}</p>
           <br />
 
-          <a href="#note" className="lightbox">
+          <a href={"#note" + this.props.index} className="lightbox">
             <img
               className="card-img-top"
+              src={this.hasImageCheck()}
               //src={require("../Images/math-notes.JPG")}
               alt="notes"
             />
           </a>
 
-          <div className="lightbox-target" id="note">
+          <div className="lightbox-target" id={"note" + this.props.index}>
             <img
               className="center"
+              src={this.hasImageCheck()}
               //src={require("../Images/math-notes.JPG")}
               alt="notes"
             />
             <a href="#" className="lightbox-close" />
           </div>
+
         </div>
         <div className="card-footer">
           <small className="text-muted">
-            Last updated {this.props.dateAdded}{" "}
+            Uploaded {this.date.toDateString()}
           </small>
         </div>
       </div>

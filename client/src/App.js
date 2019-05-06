@@ -34,7 +34,7 @@ class App extends Component {
           <Route path="/Notes" component={Notes} />
           <Route path="/RideSharing" component={RideSharing} />
           <div className="container">
-            <Route exact path="/register" component={Register} />
+             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
           </div>
@@ -45,8 +45,3 @@ class App extends Component {
 }
 
 export default App;
-
-// CHANGES FROM GITHUB THAT YOU HAVE TO PULL
-// CHANGES FROM GITHUB THAT YOU HAVE TO PULL
-// CHANGES FROM GITHUB THAT YOU HAVE TO PULL
-// CHANGES FROM GITHUB THAT YOU HAVE TO PULL
