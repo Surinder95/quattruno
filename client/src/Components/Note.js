@@ -25,8 +25,7 @@ class Note extends Component {
 
   hasImageCheck = () => {
     if (this.state.image === "") {
-      this.state.image = require("../Images/imagePlaceHolder.jpg");
-    }
+      this.setState({ image: require("../Images/imagePlaceHolder.jpg")});    }
     return this.state.image;
   }
 

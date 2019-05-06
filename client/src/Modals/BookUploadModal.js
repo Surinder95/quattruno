@@ -146,6 +146,7 @@ class BookUploadModal extends Component {
                         style={{ width: 320, height: 320 }}
                         src={this.state.image}
                         resizemode="contain"
+                        alt="preview"
                       />
                     </div>
                   </div>
