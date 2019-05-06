@@ -13,11 +13,28 @@ class Book extends Component {
     created: this.props.created
   };
 
+<<<<<<< HEAD
+=======
+  hasImageCheck = () => {
+    if (this.state.image === "") {
+      this.state.image = require("../Images/imagePlaceHolder.jpg");
+    }
+    return this.state.image;
+  }
+
+  date = new Date(this.props.created);
+
+>>>>>>> parent of a1ff616d... use setState instead of assigning it to this
   render() {
     return (
       <div className="card">
         <div className="imagecont">
+<<<<<<< HEAD
           <img className="card-img-top" src={this.props.image} alt="Textbook" />
+=======
+          <img className="card-img-top"
+            src={this.hasImageCheck()} />
+>>>>>>> parent of a1ff616d... use setState instead of assigning it to this
         </div>
 
         <label className="price">${this.props.price}</label>
