@@ -45,6 +45,9 @@ class Notes extends Component {
 =======
                 key={index}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d2371ef6... Bug Fixed ( Note Images now enlarging correctly)
+=======
 >>>>>>> parent of d2371ef6... Bug Fixed ( Note Images now enlarging correctly)
 =======
 >>>>>>> parent of d2371ef6... Bug Fixed ( Note Images now enlarging correctly)
