@@ -12,6 +12,7 @@ export const register = newUser => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -35,10 +36,13 @@ export const register = newUser => {
 >>>>>>> parent of cf464a44... ignore it
 =======
 >>>>>>> parent of 76447cd6... minor update
+=======
+>>>>>>> parent of 76447cd6... minor update
             console.log('Registered!')
         })
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -54,6 +58,8 @@ export const register = newUser => {
         })
 }
 
+>>>>>>> parent of 76447cd6... minor update
+=======
 >>>>>>> parent of 76447cd6... minor update
 =======
 >>>>>>> parent of 76447cd6... minor update
@@ -95,12 +101,16 @@ export const uploadNote = newNote => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
         .post('/login', {
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
 =======
         .post('login', {
 >>>>>>> parent of 76447cd6... minor update
