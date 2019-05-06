@@ -44,6 +44,9 @@ class Notes extends Component {
                 professor={note.professor}
 =======
                 key={index}
+<<<<<<< HEAD
+>>>>>>> parent of d2371ef6... Bug Fixed ( Note Images now enlarging correctly)
+=======
 >>>>>>> parent of d2371ef6... Bug Fixed ( Note Images now enlarging correctly)
                 title={note.title}
                 image={note.image}
