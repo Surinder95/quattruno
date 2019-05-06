@@ -34,6 +34,9 @@ class Book extends Component {
 =======
           <img className="card-img-top"
             src={this.hasImageCheck()} />
+<<<<<<< HEAD
+>>>>>>> parent of a1ff616d... use setState instead of assigning it to this
+=======
 >>>>>>> parent of a1ff616d... use setState instead of assigning it to this
         </div>
 

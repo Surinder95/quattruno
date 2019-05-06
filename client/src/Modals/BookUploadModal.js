@@ -147,7 +147,10 @@ class BookUploadModal extends Component {
                         src={this.state.image}
                         resizemode="contain"
 <<<<<<< HEAD
+<<<<<<< HEAD
                         //alt="book"
+=======
+>>>>>>> parent of a1ff616d... use setState instead of assigning it to this
 =======
 >>>>>>> parent of a1ff616d... use setState instead of assigning it to this
                       />
