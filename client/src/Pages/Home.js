@@ -116,13 +116,13 @@ class Home extends Component {
               </Link>
             </div>
 
-            <div className="col-sm-6 col-lg-3">
+            <div className="col-sm-12 col-lg-3">
               <Link to="/Notes" className="noTextDecoration">
                 <Card title="Notes" message="Share Notes" height="20rem" />
               </Link>
             </div>
 
-            <div className="col-sm-6 col-lg-3">
+            <div className="col-sm-12 col-lg-3">
               <Link to="/RideSharing" className="noTextDecoration">
                 <Card
                   title="Ridesharing"

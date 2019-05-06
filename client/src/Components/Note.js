@@ -5,13 +5,12 @@ class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: this.props.index,
       image: this.props.image,
       course: this.props.course,
       teacher: this.props.teacher,
       date: this.props.date,
-      description: this.props.description,
-      created: this.props.created,
+      comments: this.props.comments,
+      dateAdded: this.props.dateAdded,
       file: null
     };
     this.handleChange = this.handleChange.bind(this);
@@ -23,15 +22,6 @@ class Note extends Component {
     });
   }
 
-  hasImageCheck = () => {
-    if (this.state.image === "") {
-      this.state.image = require("../Images/imagePlaceHolder.jpg");
-    }
-    return this.state.image;
-  }
-
-  date = new Date(this.props.created);
-
   render() {
     return (
       <div className="card">
@@ -40,32 +30,29 @@ class Note extends Component {
             {this.props.course} : {this.props.teacher}
           </h6>
           <h6 className="card-subtitle mb-2 rightText"> {this.props.date} </h6>
-          <p className="card-text commentFont">{this.props.description}</p>
+          <p className="card-text commentFont">{this.props.comments}</p>
           <br />
 
-          <a href={"#note" + this.props.index} className="lightbox">
+          <a href="#note" className="lightbox">
             <img
               className="card-img-top"
-              src={this.hasImageCheck()}
               //src={require("../Images/math-notes.JPG")}
               alt="notes"
             />
           </a>
 
-          <div className="lightbox-target" id={"note" + this.props.index}>
+          <div className="lightbox-target" id="note">
             <img
               className="center"
-              src={this.hasImageCheck()}
               //src={require("../Images/math-notes.JPG")}
               alt="notes"
             />
             <a href="#" className="lightbox-close" />
           </div>
-
         </div>
         <div className="card-footer">
           <small className="text-muted">
-            Uploaded {this.date.toDateString()}
+            Last updated {this.props.dateAdded}{" "}
           </small>
         </div>
       </div>
