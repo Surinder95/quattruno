@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 export const register = newUser => {
-
     return axios
         .post('/register', {
             first_name: newUser.first_name,
@@ -10,6 +9,7 @@ export const register = newUser => {
             password: newUser.password,
         })
         .then(res => {
+<<<<<<< HEAD
             // console.log("did routing")
             // window.location.href="/login";
 
@@ -19,6 +19,12 @@ export const register = newUser => {
 
 
 
+=======
+            console.log('Registered!')
+        })
+}
+
+>>>>>>> parent of 76447cd6... minor update
 export const upload = newBook =>{
 
 export const login = user => {
@@ -54,8 +60,12 @@ export const uploadBook = newBook => {
 
 export const uploadNote = newNote => {
     return axios
+<<<<<<< HEAD
 
         .post('/login', {
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
             email: user.email,
             password: user.password
 
