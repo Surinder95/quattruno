@@ -60,11 +60,7 @@ app.use(function (req, res, next) {
  });
  
 
-<<<<<<< HEAD
 //ROUTE
-=======
- //ROUTE 
->>>>>>> parent of 76447cd6... minor update
 //  app.use("/", indexRoutes);
 app.post("/register", function (req, res) {
     const today = new Date()
@@ -76,7 +72,6 @@ app.post("/register", function (req, res) {
        password: req.body.password,
        date: today
    }
-<<<<<<< HEAD
 <<<<<<< HEAD
     //console.log(userData);
 
@@ -104,9 +99,6 @@ app.post("/register", function (req, res) {
 
 
 
-=======
-    console.log(userData);
->>>>>>> parent of 76447cd6... minor update
 =======
     console.log(userData);
 >>>>>>> parent of 76447cd6... minor update
@@ -262,10 +254,7 @@ app.post("/notes", function (req, res) {
 //             res.send('error: ' + err)
 //         })
 // })
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of 76447cd6... minor update
 
 
 const port = process.env.PORT || 5000;

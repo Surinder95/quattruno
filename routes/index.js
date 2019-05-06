@@ -18,15 +18,13 @@ router.get("/register", function(req, res){
 
 //handle sign up logic
 router.post("/register", function(req, res){
-   const today = new Date();
    //  var newUser = new User({username: req.body.email});
    const userData = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
-      password: req.body.password,
-      created: tody
-   }
+      password: req.body.password
+  }
     console.log(userData.eamil);
     console.log(userData);
    //  User.register(newUser, req.body.password, function(err, user){
