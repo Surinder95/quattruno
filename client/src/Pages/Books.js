@@ -29,6 +29,8 @@ class Books extends Component {
 
   renderBooks = () => {
     const { books, page } = this.state;
+    //console.log("DisplatAmt:" + this.state.displayAmt);
+    //console.log(books);
     var table = [];
     var booksPerRow = 4;
 
@@ -40,13 +42,12 @@ class Books extends Component {
             .slice(i * booksPerRow, booksPerRow + i * booksPerRow)
             .map(book => (
               <Book
-                //key={book._id}
+                key={book._id}
                 price={book.price}
                 title={book.title}
                 image={book.image}
-                course={book.course}
+                course={null}
                 description={book.description}
-                created={book.created}
                 contactInfo={null}
               />
             ))}

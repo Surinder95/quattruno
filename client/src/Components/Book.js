@@ -9,8 +9,7 @@ class Book extends Component {
     course: this.props.course,
     description: this.props.description,
     height: this.props.height,
-    contactInfo: this.props.contactInfo,
-    created: this.props.created
+    contactInfo: this.props.contactInfo
   };
 
   hasImageCheck = () => {
@@ -38,22 +37,20 @@ class Book extends Component {
           <h5 className="card-title">{this.props.title}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{this.props.course}</h6>
           <p className="card-text">{this.props.description}</p>
-          <button className="btn btn-outline-primary">
+            <button className="btn btn-outline-primary">
 
-            {/* <a className="removeBlueText" href={"mailto:" + user.email + "?Subject=Still%20Available"}>Message</a> 
-              how do we get the user's email?
+            {/* <a className="removeBlueText" href="mailto:{user.email}?Subject=Still%20Available">Message</a> 
+              I THINK THIS IS HOW WE GET IT TO RUN DYNAMICALLY ^ by putting user.email in brackets but idk if that'll work within the double quotes
             */}
 
-            <a className="removeBlueText" href="mailto:someone@example.com?Subject=Hello%20again">Message</a>
-          </button>
+             <a className="removeBlueText" href="mailto:someone@example.com?Subject=Hello%20again">Message</a>
+            </button>
         </div>
 
         <div className="card-footer">
-          <small className="text-muted">
-            Uploaded {this.date.toDateString()}
-          </small>
+          <small className="text-muted">Last updated 3 mins ago</small>
         </div>
-
+        
       </div>
     );
   }
