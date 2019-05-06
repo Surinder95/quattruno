@@ -39,8 +39,12 @@ class Notes extends Component {
             .slice(i * notesPerRow, notesPerRow + i * notesPerRow)
             .map(note => (
               <Note
+<<<<<<< HEAD
                 key={note._id}
                 professor={note.professor}
+=======
+                key={index}
+>>>>>>> parent of d2371ef6... Bug Fixed ( Note Images now enlarging correctly)
                 title={note.title}
                 image={note.image}
                 course={notes.course}
