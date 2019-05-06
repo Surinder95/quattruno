@@ -111,7 +111,7 @@ app.post("/register", function (req, res) {
     //      }
     //      passport.authenticate("local")(req, res, function(){
     //         req.flash("success", "Weclome to CSUN HUB " + user.username);
-    //         res.redirect("/books"); 
+    //         res.redirect("/books");
     //      });
     //  });
 });
@@ -145,7 +145,7 @@ app.post('/login', (req, res) => {
         })
 })
 app.get("/books", function (req, res) {
-    // Get all campgrounds from DB   
+    // Get all campgrounds from DB
     //:::: It should be under book so it might be /books :::::::
     Book.find({}, function (err, books) {
         if (err) {
@@ -177,7 +177,7 @@ app.post("/books", function (req, res) {
 })
 
 app.get("/notes", function (req, res) {
-    // Get all campgrounds from DB   
+    // Get all campgrounds from DB
     //:::: It should be under book so it might be /books :::::::
     Note.find({}, function (err, notes) {
         if (err) {
