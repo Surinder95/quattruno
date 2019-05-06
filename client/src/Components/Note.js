@@ -46,7 +46,7 @@ class Note extends Component {
           <p className="card-text commentFont">{this.props.description}</p>
           <br />
 
-          <a href={"#note" + this.props.index} className="lightbox">
+          <a href="#note" className="lightbox">
             <img
               className="card-img-top"
               src={this.hasImageCheck()}
@@ -55,7 +55,7 @@ class Note extends Component {
             />
           </a>
 
-          <div className="lightbox-target" id={"note" + this.props.index}>
+          <div className="lightbox-target" id="note">
             <img
               className="center"
               src={this.hasImageCheck()}
