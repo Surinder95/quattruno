@@ -2,20 +2,27 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Axios, { post } from "axios";
 import { uploadBook } from "../Components/UserFunctions";
+import jwt_decode from 'jwt-decode'
+
 
 const CLOUDINARY_UPLOAD_PRESET = 'omdurhcc';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/csun-hub/image/upload';
 
 
 class BookUploadModal extends Component {
+  
   constructor(props) {
+    const token = localStorage.usertoken
+    const decoded = jwt_decode(token)
     super(props);
     this.state = {
       image: require("../Images/imagePlaceHolder.jpg"),
       title: "",
       course: "",
       price: "",
-      description: ""
+      description: "",
+      email: ""
+
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -25,17 +32,24 @@ class BookUploadModal extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+    // const token = localStorage.usertoken
+    // const decoded = jwt_decode(token)
+    // this.setState({email: decoded.email});
   }
 
   onSubmit(e) {
     e.preventDefault();
+    const token = localStorage.usertoken
+    const decoded = jwt_decode(token)
+    console.log(decoded.email)
 
     const book = {
       image: this.state.image,
       title: this.state.title,
       course: this.state.course,
       price: this.state.price,
-      description: this.state.description
+      description: this.state.description,
+      email: decoded.email
     };
     console.log(book);
 
@@ -43,7 +57,7 @@ class BookUploadModal extends Component {
       if (err) {
         console.log(err);
       } else {
-        console.log("uploaded");
+        console.log("uploaded!!!!!");
       }
 
     });

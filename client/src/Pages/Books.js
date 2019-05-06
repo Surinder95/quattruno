@@ -47,7 +47,7 @@ class Books extends Component {
                 course={book.course}
                 description={book.description}
                 created={book.created}
-                contactInfo={null}
+                contactInfo={book.author ? this.author.email: null}
               />
             ))}
         </div>

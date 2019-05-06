@@ -15,8 +15,10 @@ var express = require("express"),
 const cors = require("cors")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
-const jwtMiddleware = require('express-jwt-middleware');
-var jwtCheck = jwtMiddleware('secretkey')
+const withAuth = require('./controll');
+const { JWT_SECRET } = process.env;
+var userId = '';
+var userEmail = '';
 
 //requiring routes
 var commentRoutes = require("./routes/comments"),
@@ -129,7 +131,7 @@ app.post("/register", function (req, res) {
 });
 
 app.post('/login', (req, res) => {
-    console.log(req.body.email)
+    
     User.findOne({email:req.body.email},function(err, user){
         if(err){
             console.log(err)
@@ -138,9 +140,9 @@ app.post('/login', (req, res) => {
             console.log("no user")
         }
         if(user){
-            console.log(req.body.password);
-            console.log(user);
             if (bcrypt.compareSync(req.body.password, user.password)) {
+                    userId = user._id;
+                    userEmail = user.email;
                     const payload = {
                          _id: user._id,
                         first_name: user.first_name,
@@ -148,6 +150,7 @@ app.post('/login', (req, res) => {
                         email: user.email
                     }
                     console.log(payload)
+                    console.log(userId)
                     let token = jwt.sign(payload, process.env.SECRET_KEY, {
                         expiresIn: 1440
                     })
@@ -187,14 +190,26 @@ app.post('/login', (req, res) => {
     //     })
 });
 
+function isLoggedIn(req, res, next){
+    var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+    console.log(decoded)
+    User.findOne({
+        _id: decoded._id
+    })
+        .then(user => {
+            if (user) {
+                next()
+            } else {
+                console.log("nu user")
+            }
+        })
+        .catch(err => {
+            res.send('error: ' + err)
+        })
+}
 
-app.get("/books",function(req, res, next) {
-    if (req.user) {
-        console.log(req.user)
-      next();
-    } else {
-      console.log("not authorizeddddddddddddddd")
-    }},  function (req, res) {
+
+app.get("/books", function (req, res) {
     // Get all campgrounds from DB
     //:::: It should be under book so it might be /books :::::::
     Book.find({}, function (err, books) {
@@ -210,18 +225,24 @@ app.get("/books",function(req, res, next) {
 
 
 
-app.post("/books",function (req, res) {
+app.post("/books", function (req, res) {
+    var id = '';
+    var userAuthor = {
+        id: userId,
+        email: userEmail
+    }
+    console.log(userAuthor)
     const bookData = {
         title: req.body.title,
         course: req.body.course,
         image: req.body.image,
         price: req.body.price,
         description: req.body.description,
-        author:{
-            id: req.user._id,
-            email: req.user.email 
-        }
+        author: userAuthor
+
     }
+    // console.log(bookData)
+
     Book.create(bookData, function (err, books) {
         if (err) {
             console.log(err)
@@ -264,23 +285,23 @@ app.post("/notes", function (req, res) {
     })
 })
 
-app.get('/profile', (req, res) => {
-    var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+// app.get('/profile', (req, res) => {
+//     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
-    User.findOne({
-        _id: decoded._id
-    })
-        .then(user => {
-            if (user) {
-                res.json(user)
-            } else {
-                res.send("User does not exist")
-            }
-        })
-        .catch(err => {
-            res.send('error: ' + err)
-        })
-})
+//     User.findOne({
+//         _id: decoded._id
+//     })
+//         .then(user => {
+//             if (user) {
+//                 res.json(user)
+//             } else {
+//                 res.send("User does not exist")
+//             }
+//         })
+//         .catch(err => {
+//             res.send('error: ' + err)
+//         })
+// })
 
 
 
