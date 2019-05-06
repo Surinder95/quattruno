@@ -196,6 +196,7 @@ app.post("/register", function (req, res) {
     //      });
     //  });
 <<<<<<< HEAD
+<<<<<<< HEAD
 });
 
 app.post('/login', (req, res) => {
