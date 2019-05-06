@@ -15,6 +15,8 @@ var express = require("express"),
 const cors = require("cors")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+const jwtMiddleware = require('express-jwt-middleware');
+var jwtCheck = jwtMiddleware('secretkey')
 
 //requiring routes
 var commentRoutes = require("./routes/comments"),
@@ -62,6 +64,8 @@ process.env.SECRET_KEY = 'secret'
 //     res.locals.success = req.flash("success");
 //     next();
 // });
+
+
 
 
 //ROUTE
@@ -184,7 +188,13 @@ app.post('/login', (req, res) => {
 });
 
 
-app.get("/books", function (req, res) {
+app.get("/books",function(req, res, next) {
+    if (req.user) {
+        console.log(req.user)
+      next();
+    } else {
+      console.log("not authorizeddddddddddddddd")
+    }},  function (req, res) {
     // Get all campgrounds from DB
     //:::: It should be under book so it might be /books :::::::
     Book.find({}, function (err, books) {
@@ -200,20 +210,18 @@ app.get("/books", function (req, res) {
 
 
 
-app.post("/books", function (req, res) {
+app.post("/books",function (req, res) {
     const bookData = {
         title: req.body.title,
         course: req.body.course,
         image: req.body.image,
         price: req.body.price,
         description: req.body.description,
-        author: {
+        author:{
             id: req.user._id,
             email: req.user.email 
         }
     }
-    console.log(bookData);
-    console.log(user)
     Book.create(bookData, function (err, books) {
         if (err) {
             console.log(err)
