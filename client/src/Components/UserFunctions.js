@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const register = newUser => {
+
     return axios
         .post('/register', {
             first_name: newUser.first_name,
@@ -9,9 +10,13 @@ export const register = newUser => {
             password: newUser.password,
         })
         .then(res => {
-            console.log('Registered!')
+            // console.log("did routing")
+            // window.location.href="/login"; 
+            
         })
 }
+
+
 
 export const upload = newBook =>{
     return axios
@@ -29,7 +34,7 @@ export const upload = newBook =>{
 
 export const login = user => {
     return axios
-        .post('login', {
+        .post('/login', {
             email: user.email,
             password: user.password
         })
