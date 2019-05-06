@@ -62,11 +62,8 @@ app.use(function (req, res, next) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 //ROUTE
 =======
-=======
->>>>>>> parent of 76447cd6... minor update
 =======
 >>>>>>> parent of 76447cd6... minor update
  //ROUTE 
@@ -82,7 +79,6 @@ app.post("/register", function (req, res) {
        password: req.body.password,
        date: today
    }
-<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -112,9 +108,6 @@ app.post("/register", function (req, res) {
 
 
 
-=======
-    console.log(userData);
->>>>>>> parent of 76447cd6... minor update
 =======
     console.log(userData);
 >>>>>>> parent of 76447cd6... minor update
@@ -227,7 +220,6 @@ app.post("/books", function (req, res) {
 })
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 app.get("/notes", function (req, res) {
     // Get all campgrounds from DB
     //:::: It should be under book so it might be /books :::::::
@@ -261,8 +253,25 @@ app.post("/notes", function (req, res) {
     })
 })
 =======
-=======
+// app.get('/profile', (req, res) => {
+//     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+
+//     User.findOne({
+//         _id: decoded._id
+//     })
+//         .then(user => {
+//             if (user) {
+//                 res.json(user)
+//             } else {
+//                 res.send("User does not exist")
+//             }
+//         })
+//         .catch(err => {
+//             res.send('error: ' + err)
+//         })
+// })
 >>>>>>> parent of 76447cd6... minor update
+
 // app.get('/profile', (req, res) => {
 //     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
@@ -281,29 +290,7 @@ app.post("/notes", function (req, res) {
 //         })
 // })
 <<<<<<< HEAD
->>>>>>> parent of 76447cd6... minor update
 
-// app.get('/profile', (req, res) => {
-//     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
-
-//     User.findOne({
-//         _id: decoded._id
-//     })
-//         .then(user => {
-//             if (user) {
-//                 res.json(user)
-//             } else {
-//                 res.send("User does not exist")
-//             }
-//         })
-//         .catch(err => {
-//             res.send('error: ' + err)
-//         })
-// })
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 76447cd6... minor update
 =======
 >>>>>>> parent of 76447cd6... minor update
 

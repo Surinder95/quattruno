@@ -12,7 +12,6 @@ export const register = newUser => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
             // console.log("did routing")
             // window.location.href="/login";
 
@@ -23,15 +22,6 @@ export const register = newUser => {
 
 
 =======
-=======
->>>>>>> parent of 76447cd6... minor update
-            console.log('Registered!')
-        })
-}
-
-<<<<<<< HEAD
->>>>>>> parent of 76447cd6... minor update
-=======
             console.log('Registered!')
         })
 }
@@ -44,6 +34,10 @@ export const register = newUser => {
 
 >>>>>>> parent of 76447cd6... minor update
 =======
+            console.log('Registered!')
+        })
+}
+
 >>>>>>> parent of 76447cd6... minor update
 export const upload = newBook =>{
 
@@ -83,12 +77,8 @@ export const uploadNote = newNote => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 
         .post('/login', {
-=======
-        .post('login', {
->>>>>>> parent of 76447cd6... minor update
 =======
         .post('login', {
 >>>>>>> parent of 76447cd6... minor update
