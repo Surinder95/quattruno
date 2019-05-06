@@ -10,6 +10,7 @@ export const register = newUser => {
         })
         .then(res => {
 <<<<<<< HEAD
+<<<<<<< HEAD
             // console.log("did routing")
             // window.location.href="/login";
 
@@ -19,6 +20,12 @@ export const register = newUser => {
 
 
 
+=======
+            console.log('Registered!')
+        })
+}
+
+>>>>>>> parent of 76447cd6... minor update
 =======
             console.log('Registered!')
         })
@@ -61,8 +68,12 @@ export const uploadBook = newBook => {
 export const uploadNote = newNote => {
     return axios
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         .post('/login', {
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
 =======
         .post('login', {
 >>>>>>> parent of 76447cd6... minor update
