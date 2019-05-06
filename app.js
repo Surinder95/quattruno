@@ -22,6 +22,9 @@ const bcrypt = require("bcrypt")
     seedDB      = require("./seeds")
     const cors = require("cors")
     const bcrypt = require("bcrypt")
+<<<<<<< HEAD
+>>>>>>> parent of 76447cd6... minor update
+=======
 >>>>>>> parent of 76447cd6... minor update
 
 //requiring routes
@@ -68,7 +71,12 @@ app.use(function (req, res, next) {
     res.locals.success = req.flash("success");
     next();
 <<<<<<< HEAD
+<<<<<<< HEAD
 });
+=======
+ });
+ 
+>>>>>>> parent of 76447cd6... minor update
 
 =======
  });
@@ -107,6 +115,7 @@ app.post("/register", function (req, res) {
        password: req.body.password,
        date: today
    }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -150,6 +159,9 @@ app.post("/register", function (req, res) {
 =======
     console.log(userData);
 >>>>>>> parent of 76447cd6... minor update
+=======
+    console.log(userData);
+>>>>>>> parent of 76447cd6... minor update
     User.findOne({
         email: req.body.email
     })
@@ -165,6 +177,9 @@ app.post("/register", function (req, res) {
 =======
                            console.log({ status: user.email + ' registered!' })
                            res.render(Login);
+<<<<<<< HEAD
+>>>>>>> parent of 76447cd6... minor update
+=======
 >>>>>>> parent of 76447cd6... minor update
                         })
                         .catch(err => {
@@ -196,10 +211,13 @@ app.post("/register", function (req, res) {
     //      });
     //  });
 <<<<<<< HEAD
+<<<<<<< HEAD
 });
 
 app.post('/login', (req, res) => {
 =======
+=======
+>>>>>>> parent of 76447cd6... minor update
  });
 
  app.post('/login', (req, res) => {
@@ -232,8 +250,11 @@ app.post('/login', (req, res) => {
         })
 })
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.get("/books", function (req, res) {
 =======
+=======
+>>>>>>> parent of 76447cd6... minor update
  app.get("/books", function(req, res){
 >>>>>>> parent of 76447cd6... minor update
     // Get all campgrounds from DB   
@@ -267,6 +288,7 @@ app.post("/books", function (req, res) {
     })
 })
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -309,6 +331,8 @@ app.post("/notes", function (req, res) {
 =======
 =======
 >>>>>>> parent of 76447cd6... minor update
+=======
+>>>>>>> parent of 76447cd6... minor update
 // app.get('/profile', (req, res) => {
 //     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
@@ -326,6 +350,7 @@ app.post("/notes", function (req, res) {
 //             res.send('error: ' + err)
 //         })
 // })
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 76447cd6... minor update
 >>>>>>> parent of cf464a44... ignore it
@@ -353,6 +378,8 @@ app.post("/notes", function (req, res) {
 =======
 >>>>>>> parent of 76447cd6... minor update
 >>>>>>> parent of cf464a44... ignore it
+=======
+>>>>>>> parent of 76447cd6... minor update
 =======
 >>>>>>> parent of 76447cd6... minor update
 
