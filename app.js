@@ -61,7 +61,7 @@ app.use(function (req, res, next) {
 });
 
 
-//ROUTE 
+//ROUTE
 //  app.use("/", indexRoutes);
 app.post("/register", function (req, res) {
     const today = new Date()
