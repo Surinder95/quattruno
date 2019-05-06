@@ -9,9 +9,43 @@ export const register = newUser => {
             password: newUser.password,
         })
         .then(res => {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            // console.log("did routing")
+            // window.location.href="/login";
+
+        })
+}
+
+
+
+
+=======
+=======
+>>>>>>> parent of 76447cd6... minor update
             console.log('Registered!')
         })
 }
+
+<<<<<<< HEAD
+>>>>>>> parent of 76447cd6... minor update
+=======
+            console.log('Registered!')
+        })
+}
+
+>>>>>>> parent of 76447cd6... minor update
+=======
+            console.log('Registered!')
+        })
+}
+
+>>>>>>> parent of 76447cd6... minor update
+=======
+>>>>>>> parent of 76447cd6... minor update
+export const upload = newBook =>{
 
 export const login = user => {
     return axios
@@ -29,6 +63,7 @@ export const login = user => {
 }
 
 export const uploadBook = newBook => {
+
     return axios
         .post('/books', {
             image: newBook.image,
@@ -45,6 +80,27 @@ export const uploadBook = newBook => {
 
 export const uploadNote = newNote => {
     return axios
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        .post('/login', {
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
+=======
+        .post('login', {
+>>>>>>> parent of 76447cd6... minor update
+            email: user.email,
+            password: user.password
+
         .post('/notes', {
             image: newNote.image,
             course: newNote.course,
@@ -54,9 +110,9 @@ export const uploadNote = newNote => {
             // .post('login', {
             //     email: user.email,
             //     password: user.password
+
         })
         .then(res => {
             console.log('Uploaded')
         })
 }
-

@@ -7,13 +7,12 @@ var express = require("express"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
     methodOverride = require("method-override"),
-    Book = require("./models/book"),
-    Note = require("./models/note"),
-    Comment = require("./models/comment"),
-    User = require("./models/user"),
-    seedDB = require("./seeds")
-const cors = require("cors")
-const bcrypt = require("bcrypt")
+    Book  = require("./models/book"),
+    Comment     = require("./models/comment"),
+    User        = require("./models/user"),
+    seedDB      = require("./seeds")
+    const cors = require("cors")
+    const bcrypt = require("bcrypt")
 
 //requiring routes
 var commentRoutes = require("./routes/comments"),
@@ -58,22 +57,73 @@ app.use(function (req, res, next) {
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();
-});
+ });
+ 
 
-
-//ROUTE 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+//ROUTE
+=======
+=======
+>>>>>>> parent of 76447cd6... minor update
+=======
+>>>>>>> parent of 76447cd6... minor update
+ //ROUTE 
+>>>>>>> parent of 76447cd6... minor update
 //  app.use("/", indexRoutes);
 app.post("/register", function (req, res) {
     const today = new Date()
     //  var newUser = new User({username: req.body.email});
     const userData = {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        password: req.body.password,
-        date: today
-    }
+       first_name: req.body.first_name,
+       last_name: req.body.last_name,
+       email: req.body.email,
+       password: req.body.password,
+       date: today
+   }
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    //console.log(userData);
+
+    var newUser = new User(
+        {
+            username: req.body.email,
+            first_name: req.body.frist_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            date:today
+        });
+
+
+    // User.register(newUser, req.body.password, function(err, user){
+    //     if(err){
+    //         //return res.redirect("http://localhost:3000/books");
+    //         console.log(err);
+    //     }
+    //     console.log(user);
+    //     passport.authenticate('local')(req, res, function(){
+    //         res.json({redirectURI: "http://localhost:3000/books"})
+    //     });
+    //     console.log('no erro2222r!');
+    // });
+
+
+
+=======
     console.log(userData);
+>>>>>>> parent of 76447cd6... minor update
+=======
+    console.log(userData);
+>>>>>>> parent of 76447cd6... minor update
+=======
+    console.log(userData);
+>>>>>>> parent of 76447cd6... minor update
+=======
+    console.log(userData);
+>>>>>>> parent of 76447cd6... minor update
     User.findOne({
         email: req.body.email
     })
@@ -83,8 +133,8 @@ app.post("/register", function (req, res) {
                     userData.password = hash
                     User.create(userData)
                         .then(user => {
-                            console.log({ status: user.email + ' registered!' })
-                            res.render(Login);
+                           console.log({ status: user.email + ' registered!' })
+                           res.render(Login);
                         })
                         .catch(err => {
                             console.log('error: ' + err)
@@ -114,9 +164,9 @@ app.post("/register", function (req, res) {
     //         res.redirect("/books"); 
     //      });
     //  });
-});
+ });
 
-app.post('/login', (req, res) => {
+ app.post('/login', (req, res) => {
     User.findOne({
         email: req.body.email
     })
@@ -144,8 +194,8 @@ app.post('/login', (req, res) => {
             res.send('error: ' + err)
         })
 })
-app.get("/books", function (req, res) {
-    // Get all campgrounds from DB   
+ app.get("/books", function(req, res){
+    // Get all campgrounds from DB
     //:::: It should be under book so it might be /books :::::::
     Book.find({}, function (err, books) {
         if (err) {
@@ -176,8 +226,10 @@ app.post("/books", function (req, res) {
     })
 })
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 app.get("/notes", function (req, res) {
-    // Get all campgrounds from DB   
+    // Get all campgrounds from DB
     //:::: It should be under book so it might be /books :::::::
     Note.find({}, function (err, notes) {
         if (err) {
@@ -208,6 +260,28 @@ app.post("/notes", function (req, res) {
         }
     })
 })
+=======
+=======
+>>>>>>> parent of 76447cd6... minor update
+// app.get('/profile', (req, res) => {
+//     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+
+//     User.findOne({
+//         _id: decoded._id
+//     })
+//         .then(user => {
+//             if (user) {
+//                 res.json(user)
+//             } else {
+//                 res.send("User does not exist")
+//             }
+//         })
+//         .catch(err => {
+//             res.send('error: ' + err)
+//         })
+// })
+<<<<<<< HEAD
+>>>>>>> parent of 76447cd6... minor update
 
 // app.get('/profile', (req, res) => {
 //     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
@@ -226,7 +300,12 @@ app.post("/notes", function (req, res) {
 //             res.send('error: ' + err)
 //         })
 // })
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 76447cd6... minor update
+=======
+>>>>>>> parent of 76447cd6... minor update
 
 
 const port = process.env.PORT || 5000;
