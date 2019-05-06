@@ -11,30 +11,19 @@ export const register = newUser => {
         })
         .then(res => {
             // console.log("did routing")
-            // window.location.href="/login"; 
-            
+            // window.location.href="/login";
+
         })
 }
+
 
 
 
 export const upload = newBook =>{
-    return axios
-        .post('/books', {
-            image: newBook.image,
-            title: newBook.title,
-            price: newBook.price,
-            description: newBook.description
-
-        })
-        .then(res =>{
-            console.log('Uploaded')
-        })
-}
 
 export const login = user => {
     return axios
-        .post('/login', {
+        .post('users/login', {
             email: user.email,
             password: user.password
         })
@@ -47,3 +36,41 @@ export const login = user => {
         })
 }
 
+export const uploadBook = newBook => {
+
+    return axios
+        .post('/books', {
+            image: newBook.image,
+            course: newBook.course,
+            title: newBook.title,
+            price: newBook.price,
+            description: newBook.description
+
+        })
+        .then(res => {
+            console.log('Uploaded')
+        })
+}
+
+export const uploadNote = newNote => {
+    return axios
+
+        .post('/login', {
+            email: user.email,
+            password: user.password
+
+        .post('/notes', {
+            image: newNote.image,
+            course: newNote.course,
+            title: newNote.title,
+            teacher: newNote.teacher,
+            description: newNote.description
+            // .post('login', {
+            //     email: user.email,
+            //     password: user.password
+
+        })
+        .then(res => {
+            console.log('Uploaded')
+        })
+}

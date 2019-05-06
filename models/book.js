@@ -6,6 +6,11 @@ var bookSchema = new mongoose.Schema({
   image: String,
   price: Number,
   description: String,
+  created: {
+    type: Date,
+    default: Date.now
+  },
+
   author: {
     id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -13,6 +18,7 @@ var bookSchema = new mongoose.Schema({
     },
     username: String
   },
+
   comments: [
     {
       type: mongoose.Schema.Types.ObjectId,

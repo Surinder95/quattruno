@@ -1,15 +1,26 @@
 var mongoose = require("mongoose");
 
-var noteSchema = mongoose.Schema({
-    className: String,
-    classNumber: String,
+var noteSchema = new mongoose.Schema({
+    title: String,
+    course: String,
+    image: String,
+    teacher: String,
+    //classNumber: String,
     description: String,
     image: String,
     created: {
-        type: Date, 
+        type: Date,
         default: Date.now
-        
-    }
+
+    },
+
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        username: String
+    },
 
 
 });

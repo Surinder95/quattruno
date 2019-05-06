@@ -37,14 +37,16 @@ class Notes extends Component {
         <div className="card-deck" key={i} style={{ paddingBottom: "10px" }}>
           {notes
             .slice(i * notesPerRow, notesPerRow + i * notesPerRow)
-            .map(note => (
+            .map((note, index) => (index + 1,
               <Note
-                key={note._id}
-                professor={note.professor}
+                key={index}
+                index={i + "" + index}
                 title={note.title}
+                course={note.course}
                 image={note.image}
-                course={notes.course}
+                teacher={note.teacher}
                 description={note.description}
+                created={note.created}
               />
             ))}
         </div>
@@ -81,7 +83,7 @@ class Notes extends Component {
               body={this.renderNotes()}
               footer={
                 <div>
-                  <button style={{ margin: 20 }} className="btn btn-primary">
+                  <button style={{ margin: 20 }} className="btn btn-primary" onClick={() => this.updateNotes()}>
                     Load More
                   </button>
                 </div>
