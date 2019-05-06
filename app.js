@@ -7,6 +7,7 @@ var express = require("express"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
     methodOverride = require("method-override"),
+<<<<<<< HEAD
     Book = require("./models/book"),
     Note = require("./models/note"),
     Comment = require("./models/comment"),
@@ -14,6 +15,14 @@ var express = require("express"),
     seedDB = require("./seeds")
 const cors = require("cors")
 const bcrypt = require("bcrypt")
+=======
+    Book  = require("./models/book"),
+    Comment     = require("./models/comment"),
+    User        = require("./models/user"),
+    seedDB      = require("./seeds")
+    const cors = require("cors")
+    const bcrypt = require("bcrypt")
+>>>>>>> parent of 76447cd6... minor update
 
 //requiring routes
 var commentRoutes = require("./routes/comments"),
@@ -58,8 +67,13 @@ app.use(function (req, res, next) {
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();
+<<<<<<< HEAD
 });
 
+=======
+ });
+ 
+>>>>>>> parent of 76447cd6... minor update
 
 <<<<<<< HEAD
 //ROUTE 
@@ -93,6 +107,7 @@ app.post("/register", function (req, res) {
        password: req.body.password,
        date: today
    }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -132,6 +147,9 @@ app.post("/register", function (req, res) {
     console.log(userData);
 >>>>>>> parent of 76447cd6... minor update
 >>>>>>> parent of cf464a44... ignore it
+=======
+    console.log(userData);
+>>>>>>> parent of 76447cd6... minor update
     User.findOne({
         email: req.body.email
     })
@@ -141,8 +159,13 @@ app.post("/register", function (req, res) {
                     userData.password = hash
                     User.create(userData)
                         .then(user => {
+<<<<<<< HEAD
                             console.log({ status: user.email + ' registered!' })
                             res.render(Login);
+=======
+                           console.log({ status: user.email + ' registered!' })
+                           res.render(Login);
+>>>>>>> parent of 76447cd6... minor update
                         })
                         .catch(err => {
                             console.log('error: ' + err)
@@ -172,9 +195,15 @@ app.post("/register", function (req, res) {
     //         res.redirect("/books"); 
     //      });
     //  });
+<<<<<<< HEAD
 });
 
 app.post('/login', (req, res) => {
+=======
+ });
+
+ app.post('/login', (req, res) => {
+>>>>>>> parent of 76447cd6... minor update
     User.findOne({
         email: req.body.email
     })
@@ -202,7 +231,11 @@ app.post('/login', (req, res) => {
             res.send('error: ' + err)
         })
 })
+<<<<<<< HEAD
 app.get("/books", function (req, res) {
+=======
+ app.get("/books", function(req, res){
+>>>>>>> parent of 76447cd6... minor update
     // Get all campgrounds from DB   
     //:::: It should be under book so it might be /books :::::::
     Book.find({}, function (err, books) {
@@ -234,6 +267,7 @@ app.post("/books", function (req, res) {
     })
 })
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -273,6 +307,8 @@ app.post("/notes", function (req, res) {
 <<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> parent of 76447cd6... minor update
 // app.get('/profile', (req, res) => {
 //     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
@@ -290,6 +326,7 @@ app.post("/notes", function (req, res) {
 //             res.send('error: ' + err)
 //         })
 // })
+<<<<<<< HEAD
 >>>>>>> parent of 76447cd6... minor update
 >>>>>>> parent of cf464a44... ignore it
 
@@ -316,6 +353,8 @@ app.post("/notes", function (req, res) {
 =======
 >>>>>>> parent of 76447cd6... minor update
 >>>>>>> parent of cf464a44... ignore it
+=======
+>>>>>>> parent of 76447cd6... minor update
 
 
 const port = process.env.PORT || 5000;
