@@ -23,18 +23,13 @@ class Note extends Component {
     });
   }
 
-<<<<<<< HEAD
-=======
   hasImageCheck = () => {
     if (this.state.image === "") {
-      this.state.image = require("../Images/imagePlaceHolder.jpg");
+      this.setState({image : require("../Images/imagePlaceHolder.jpg")});
     }
     return this.state.image;
   }
 
-  date = new Date(this.props.created);
-
->>>>>>> parent of a1ff616d... use setState instead of assigning it to this
   render() {
     return (
       <div className="card">
@@ -68,7 +63,6 @@ class Note extends Component {
         </div>
         <div className="card-footer">
           <small className="text-muted">
-            Uploaded {this.date.toDateString()}
           </small>
         </div>
       </div>
