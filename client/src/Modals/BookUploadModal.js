@@ -150,7 +150,12 @@ class BookUploadModal extends Component {
                     </div>
                   </div>
                   <br />
-                  <button className="btn btn-primary" type="submit">
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                    data-target="#uploadModal"
+                    data-toggle="modal"
+                  >
                     Upload
                   </button>
                 </form>
