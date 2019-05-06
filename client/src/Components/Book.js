@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
+import jwt_decode from 'jwt-decode'
 
 class Book extends Component {
   state = {
@@ -11,6 +12,7 @@ class Book extends Component {
     height: this.props.height,
     contactInfo: this.props.contactInfo,
     created: this.props.created
+    
   };
 
   hasImageCheck = () => {
@@ -41,8 +43,9 @@ class Book extends Component {
             {/* <a className="removeBlueText" href={"mailto:" + user.email + "?Subject=Still%20Available"}>Message</a> 
               how do we get the user's email?
             */}
-
+        
             <a className="removeBlueText" href="mailto:someone@example.com?Subject=Hello%20again">Message</a>
+        
           </button>
         </div>
 

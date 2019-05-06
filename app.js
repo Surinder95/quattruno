@@ -14,6 +14,7 @@ var express = require("express"),
     seedDB = require("./seeds")
 const cors = require("cors")
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
 //requiring routes
 var commentRoutes = require("./routes/comments"),
@@ -43,6 +44,8 @@ app.use(require("express-session")({
     saveUninitialized: false
 }));
 
+
+
 //PASSPORT CONIF
 // app.use(passport.initialize());
 // app.use(passport.session());
@@ -53,16 +56,21 @@ app.use(require("express-session")({
 process.env.SECRET_KEY = 'secret'
 
 
-app.use(function (req, res, next) {
-    res.locals.currentUser = req.user;
-    res.locals.error = req.flash("error");
-    res.locals.success = req.flash("success");
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.locals.currentUser = req.user;
+//     res.locals.error = req.flash("error");
+//     res.locals.success = req.flash("success");
+//     next();
+// });
 
 
 //ROUTE
 //  app.use("/", indexRoutes);
+
+app.get('/login', function(req, res){
+
+    res.send("ewwewe")
+})
 app.post("/register", function (req, res) {
     const today = new Date()
     //  var newUser = new User({username: req.body.email});
@@ -84,7 +92,7 @@ app.post("/register", function (req, res) {
                     User.create(userData)
                         .then(user => {
                             console.log({ status: user.email + ' registered!' })
-                            res.render(Login);
+                            res.redirect('http://localhost:3000/login');
                         })
                         .catch(err => {
                             console.log('error: ' + err)
@@ -117,33 +125,65 @@ app.post("/register", function (req, res) {
 });
 
 app.post('/login', (req, res) => {
-    User.findOne({
-        email: req.body.email
-    })
-        .then(user => {
-            if (user) {
-                if (bcrypt.compareSync(req.body.password, user.password)) {
+    console.log(req.body.email)
+    User.findOne({email:req.body.email},function(err, user){
+        if(err){
+            console.log(err)
+        }
+        if(!user){
+            console.log("no user")
+        }
+        if(user){
+            console.log(req.body.password);
+            console.log(user);
+            if (bcrypt.compareSync(req.body.password, user.password)) {
                     const payload = {
-                        _id: user._id,
+                         _id: user._id,
                         first_name: user.first_name,
                         last_name: user.last_name,
                         email: user.email
                     }
+                    console.log(payload)
                     let token = jwt.sign(payload, process.env.SECRET_KEY, {
                         expiresIn: 1440
                     })
                     res.send(token)
-                } else {
-                    res.json({ error: "User does not exist" })
-                }
             } else {
                 res.json({ error: "User does not exist" })
             }
-        })
-        .catch(err => {
-            res.send('error: ' + err)
-        })
-})
+        }
+    })
+            
+    // User.findOne({
+    //     email: req.body.email
+    // })
+    //     .then(user => {
+    //         if (user) {
+    //             if (bcrypt.compareSync(req.body.password, user.password)) {
+    //                 const payload = {
+    //                     _id: user._id,
+    //                     first_name: user.first_name,
+    //                     last_name: user.last_name,
+    //                     email: user.email
+    //                 }
+    //                 console.log(payload)
+    //                 let token = jwt.sign(payload, process.env.SECRET_KEY, {
+    //                     expiresIn: 1440
+    //                 })
+    //                 res.send(token)
+    //             } else {
+    //                 res.json({ error: "User does not exist" })
+    //             }
+    //         } else {
+    //             res.json({ error: "User does not exist" })
+    //         }
+    //     })
+    //     .catch(err => {
+    //         res.send('error: ' + err)
+    //     })
+});
+
+
 app.get("/books", function (req, res) {
     // Get all campgrounds from DB
     //:::: It should be under book so it might be /books :::::::
@@ -158,15 +198,22 @@ app.get("/books", function (req, res) {
     });
 });
 
+
+
 app.post("/books", function (req, res) {
     const bookData = {
         title: req.body.title,
         course: req.body.course,
         image: req.body.image,
         price: req.body.price,
-        description: req.body.description
+        description: req.body.description,
+        author: {
+            id: req.user._id,
+            email: req.user.email 
+        }
     }
     console.log(bookData);
+    console.log(user)
     Book.create(bookData, function (err, books) {
         if (err) {
             console.log(err)
@@ -209,23 +256,23 @@ app.post("/notes", function (req, res) {
     })
 })
 
-// app.get('/profile', (req, res) => {
-//     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+app.get('/profile', (req, res) => {
+    var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
-//     User.findOne({
-//         _id: decoded._id
-//     })
-//         .then(user => {
-//             if (user) {
-//                 res.json(user)
-//             } else {
-//                 res.send("User does not exist")
-//             }
-//         })
-//         .catch(err => {
-//             res.send('error: ' + err)
-//         })
-// })
+    User.findOne({
+        _id: decoded._id
+    })
+        .then(user => {
+            if (user) {
+                res.json(user)
+            } else {
+                res.send("User does not exist")
+            }
+        })
+        .catch(err => {
+            res.send('error: ' + err)
+        })
+})
 
 
 

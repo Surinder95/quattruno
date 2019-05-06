@@ -70,7 +70,7 @@ class UserBooksModal extends Component {
               </div>
               <div className="modal-body">
                 <div className="card-deck">
-                  {this.renderUserBooks()}
+                  {/* {this.renderUserBooks()} */}
                   {/* <Book
                     price="100"
                     title="Intro to Operating Systems"
