@@ -11,8 +11,11 @@ var express = require("express"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     seedDB      = require("./seeds")
-    const cors = require("cors")
-    const bcrypt = require("bcrypt")
+const cors = require("cors")
+const bcrypt = require("bcrypt")
+const httpProxy = require('http-proxy')
+const proxy = httpProxy.createServer({})
+const jwt = require("jsonwebtoken")
 
 //requiring routes
 var commentRoutes = require("./routes/comments"),
@@ -43,11 +46,11 @@ app.use(require("express-session")({
 }));
 
 //PASSPORT CONIF
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.use(new LocalStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 process.env.SECRET_KEY = 'secret'
 
@@ -58,13 +61,17 @@ app.use(function (req, res, next) {
     res.locals.success = req.flash("success");
     next();
  });
- 
+
+app.get('/login', function(req, res){
+    res.send('gegwqegweq');
+})
+
+
 
 //ROUTE
 //  app.use("/", indexRoutes);
 app.post("/register", function (req, res) {
     const today = new Date()
-    //  var newUser = new User({username: req.body.email});
     const userData = {
        first_name: req.body.first_name,
        last_name: req.body.last_name,
@@ -72,7 +79,6 @@ app.post("/register", function (req, res) {
        password: req.body.password,
        date: today
    }
-<<<<<<< HEAD
     //console.log(userData);
 
     var newUser = new User(
@@ -99,9 +105,6 @@ app.post("/register", function (req, res) {
 
 
 
-=======
-    console.log(userData);
->>>>>>> parent of 76447cd6... minor update
     User.findOne({
         email: req.body.email
     })
@@ -112,7 +115,7 @@ app.post("/register", function (req, res) {
                     User.create(userData)
                         .then(user => {
                            console.log({ status: user.email + ' registered!' })
-                           res.render(Login);
+                           res.redirect('login')
                         })
                         .catch(err => {
                             console.log('error: ' + err)
@@ -125,24 +128,17 @@ app.post("/register", function (req, res) {
         .catch(err => {
             console.log('error: ' + err)
         })
-    //  User.create(userData)
-    //     .then(user => {
-    //         res.json({ status: user.email + ' registered!' })
-    //     })
-    //     .catch(err => {
-    //         res.send('error: ' + err)
-    //     })
-    //  User.register(newUser, req.body.password, function(err, user){
-    //      if(err){
-    //          req.flash("error", err.message);
-    //          return res.send("error");
-    //      }
-    //      passport.authenticate("local")(req, res, function(){
-    //         req.flash("success", "Weclome to CSUN HUB " + user.username);
-    //         res.redirect("/books"); 
-    //      });
-    //  });
  });
+
+//  app.post('/login', passport.authenticate('local',
+//  {
+//      successRedirect: "http://localhost:3000/",
+//      failureRedirect: "http://localhost:3000/books"
+//  }), function(req, res){
+//         console.log("I did login1!!!!");
+
+// });
+
 
  app.post('/login', (req, res) => {
     User.findOne({
@@ -172,6 +168,8 @@ app.post("/register", function (req, res) {
             res.send('error: ' + err)
         })
 })
+
+
  app.get("/books", function(req, res){
     // Get all campgrounds from DB
     //:::: It should be under book so it might be /books :::::::
@@ -237,23 +235,24 @@ app.post("/notes", function (req, res) {
     })
 })
 
-// app.get('/profile', (req, res) => {
-//     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+app.get('/profile', (req, res) => {
+    console.log(jwt)
+    var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
-//     User.findOne({
-//         _id: decoded._id
-//     })
-//         .then(user => {
-//             if (user) {
-//                 res.json(user)
-//             } else {
-//                 res.send("User does not exist")
-//             }
-//         })
-//         .catch(err => {
-//             res.send('error: ' + err)
-//         })
-// })
+    User.findOne({
+        _id: decoded._id
+    })
+        .then(user => {
+            if (user) {
+                res.json(user)
+            } else {
+                res.send("User does not exist")
+            }
+        })
+        .catch(err => {
+            res.send('error: ' + err)
+        })
+})
 
 
 
