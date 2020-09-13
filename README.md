@@ -9,3 +9,10 @@ can view those notes. We do this by taking the user's class numbers (5 digit num
 notes and books. 
 You don't want to see Art History notes if you're not in any Art History class.
 By the same token, we don't want freshman CS students to be able to view 3rd or 4th year CS course notes or textbooks.
+
+
+Demo for yourself:
+1) clone or download zip
+2) cd into the client folder in your CLI or terminal
+3) `npm install` or `yarn install`
+4) `npm start`
